@@ -19,7 +19,9 @@
         <td><%= cultivar.fruit_weight_gr %></td>
         <td><%= cultivar.species.name %></td>
         <td><%= link_to 'ערוך', edit_cultivar_path(cultivar) %></td>
+        <% if logged_in? && current_user.admin? %>
         <td><%= link_to 'מחק', cultivar, method: :delete, data: { confirm: 'מחיקת זן תביא למחיקת כל המלצות היבול הקשורות אליו. האם אתה בטוח?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

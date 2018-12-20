@@ -20,7 +20,11 @@
         <a href=<%=species_index_path%>>מינים</a>
         <a href=<%=cultivars_path%>>זנים</a>
         <a href=<%=yieldrecs_path%>>המלצות יבול</a>
+        <% if current_user.admin? %>
         <a href=<%=users_path%>>משתמשים</a>
+        <% else %>
+        <a href=<%=edit_user_path(current_user)%>>החשבון שלי</a>
+        <% end %>
       </div>
     </div> 
   <% else %>

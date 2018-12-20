@@ -6,7 +6,10 @@
   <thead>
     <tr>
       <th>דואר אלקטרוני</th>
-      <th>הרשאות עריכה</th>
+      <th>מורשה עריכה</th>
+      <% if current_user.admin? %>
+      <th>מזהה משתמש</th>
+      <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +18,17 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= user.admin %></td>
+        <td><%= user.admin ? "כן" : "לא" %></td>
+        <% if current_user.admin? %>
+        <td><%= user.id %></td>
+        <% end %>
+        <% if logged_in? and (user == current_user || current_user.admin? ) %>
         <td><%= link_to 'הצג', user %></td>
         <td><%= link_to 'ערוך', edit_user_path(user) %></td>
-        <td><%= link_to 'מחק', user, method: :delete, data: { confirm: 'נא לאשר מחיקת משתמש' } %></td>
+        <% end %>
+        <% if logged_in? and current_user.admin? %>
+        <td><%= link_to 'מחק', user, method: :delete, data: { confirm: 'נא אשר מחיקת משתמש' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

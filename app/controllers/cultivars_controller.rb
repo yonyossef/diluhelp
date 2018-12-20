@@ -1,5 +1,6 @@
 class CultivarsController < ApplicationController
   before_action :set_cultivar, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy]
 
   # GET /cultivars
   # GET /cultivars.json

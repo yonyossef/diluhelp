@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy, :index]
 
   # GET /users
   # GET /users.json
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url, notice: 'חשבון המשתמש נוצר בהצלחה' }
+        format.html { redirect_to root_path, notice: 'חשבון המשתמש נוצר בהצלחה' }
         format.json { render :index, status: :created, location: @user }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url, notice: 'חשבון המשתמש עודכן בהצלחה' }
+        format.html { redirect_to root_path, notice: 'חשבון המשתמש עודכן בהצלחה' }
         format.json { render :index, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -70,6 +71,13 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:email, :admin, :password)
+    end
+    
+    def require_same_user
+        if current_user != @user and !current_user.admin?
+            flash[:danger] = "אינך מורשה לערוך חשבון זה"
+            redirect_to root_path
+        end
     end
    
 end

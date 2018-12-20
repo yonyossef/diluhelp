@@ -15,7 +15,9 @@
       <tr>
         <td><%= species.name %></td>
         <td><%= link_to 'ערוך', edit_species_path(species) %></td>
+        <% if logged_in? && current_user.admin? %>
         <td><%= link_to 'מחק', species, method: :delete, data: { confirm: 'מחיקת מין תביא למחיקת כל הזנים הקשורים וכל המלצות היבול. האם אתה בטוח?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

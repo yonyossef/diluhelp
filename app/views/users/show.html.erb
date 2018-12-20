@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>דואר אלקטרוני</strong>
   <%= @user.email %>
 </p>
-
+<% if current_user.admin? %>
 <p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
+  <strong>מזהה משתמש</strong>
+  <%= @user.id %>
+</p>
+<% end %>
+<p>
+  <strong>מורשה עריכה</strong>
+  <%= @user.admin ? "כן" : "לא" %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'ערוך', edit_user_path(@user) %> |
+<%= link_to 'חזור', :back %>

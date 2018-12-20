@@ -22,6 +22,13 @@ module SessionsHelper
     !current_user.nil?
   end
   
+  def require_admin
+      if logged_in? and !current_user.admin?
+          flash[:danger] = "פעולה זו מותרת למורשי עריכה בלבד"
+          redirect_to :back
+      end
+  end
+  
   # Logs out the current user.
   def log_out
     session.delete(:user_id)
