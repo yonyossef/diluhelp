@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>DiluHelp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+
+<div class="topnav">
+  <% if logged_in? %>
+    <a><%= link_to "יציאה", logout_path, method: :delete %></a>
+    <div class="dropdown">
+      <button class="dropbtn">עריכה
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href=<%=species_index_path%>>מינים</a>
+        <a href=<%=cultivars_path%>>זנים</a>
+        <a href=<%=yieldrecs_path%>>המלצות יבול</a>
+        <a href=<%=users_path%>>משתמשים</a>
+      </div>
+    </div> 
+  <% else %>
+    <a href=<%=login_path%>>כניסה למורשים</a>
+  <% end %>
+  <div class="topnav-right">
+    <a href="mailto:annatziso@gmail.com">צור קשר</a>
+    <a class="active" href=<%=root_path%>>מחשבון</a>
+  </div>
+</div>
+
+<div style="padding-right:16px" dir="rtl">
+  <%= yield %>
+</div>
+
+
 
 </body>
 </html>

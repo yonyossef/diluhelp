@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Plot strength:</strong>
+  <%= @yield.plot_strength %>
+</p>
+
+<p>
+  <strong>Recommended kg:</strong>
+  <%= @yield.recommended_kg %>
+</p>
+
+<p>
+  <strong>Cultivar:</strong>
+  <%= @yield.cultivar %>
+</p>
+
+<%= link_to 'Edit', edit_yield_path(@yield) %> |
+<%= link_to 'Back', yields_path %>

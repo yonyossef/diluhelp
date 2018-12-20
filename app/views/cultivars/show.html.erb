@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cultivar.name %>
+</p>
+
+<p>
+  <strong>Fruit weight gr:</strong>
+  <%= @cultivar.fruit_weight_gr %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @cultivar.species %>
+</p>
+
+<%= link_to 'Edit', edit_cultivar_path(@cultivar) %> |
+<%= link_to 'Back', cultivars_path %>

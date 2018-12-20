@@ -1,0 +1,32 @@
+<%= form_for(cultivar) do |f| %>
+  <% if cultivar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cultivar.errors.count, "error") %> prohibited this cultivar from being saved:</h2>
+
+      <ul>
+      <% cultivar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label "בחר את מין הפרי" %>
+    <%= f.collection_select :species_id, Species.order(:name),:id,:name, {:prompt => 'בחר מין פרי', :include_blank=> false} %>
+  </div>
+
+  <div class="field">
+    <%= f.label "שם הזן" %>
+    <%= f.text_field :name, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "משקל פרי מקובל (גרם)" %>
+    <%= f.number_field :fruit_weight_gr, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "שמור"%>
+  </div>
+<% end %>

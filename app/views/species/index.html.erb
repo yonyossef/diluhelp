@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>מינים</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>שם מין</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @species.each do |species| %>
+      <tr>
+        <td><%= species.name %></td>
+        <td><%= link_to 'ערוך', edit_species_path(species) %></td>
+        <td><%= link_to 'מחק', species, method: :delete, data: { confirm: 'מחיקת מין תביא למחיקת כל הזנים הקשורים וכל המלצות היבול. האם אתה בטוח?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'הוסף מין', new_species_path %>

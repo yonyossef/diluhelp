@@ -1,0 +1,32 @@
+<%= form_for(yieldrec) do |f| %>
+  <% if yieldrec.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(yieldrecrec.errors.count, "error") %>  שגיאות מנעו מרשומה זו להישמר במסד הנתונים:</h2>
+
+      <ul>
+      <% yieldrec.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "בחר את זן הפרי" %>
+    <%= f.collection_select :cultivar_id, Cultivar.order(:name),:id,:name, {:prompt => 'בחר זן', :include_blank=> false} %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "בחר את חוזק החלקה" %>
+    <%= f.select :plot_strength, options_for_select([['צעירה'], ['רגילה'], ['חלשה']]) %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'הזן יבול מומלץ לדונם (ק"ג)' %>
+    <%= f.number_field :recommended_kg, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "שמור" %>
+  </div>
+<% end %>

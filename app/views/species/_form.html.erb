@@ -1,0 +1,22 @@
+<%= form_for(species) do |f| %>
+  <% if species.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(species.errors.count, "error") %>  שגיאות מנעו מרשומה זו להישמר במסד הנתונים:</h2>
+
+      <ul>
+      <% species.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "שם המין" %>
+    <%= f.text_field :name, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "שמור" %>
+  </div>
+<% end %>

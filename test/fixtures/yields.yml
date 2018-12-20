@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plot_strength: MyString
+  recommended_kg: 1
+  cultivar: one
+
+two:
+  plot_strength: MyString
+  recommended_kg: 1
+  cultivar: two
