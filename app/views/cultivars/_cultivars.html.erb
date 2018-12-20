@@ -1,0 +1,27 @@
+<table id="cultivars">
+  <thead>
+    <tr>
+      <th>שם זן</th>
+      <th>מין הפרי</th>      
+      <th>משקל פרי (גרם)</th>
+      <th>פעולות</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% cultivar_list.each do |cultivar| %>
+      <tr>
+        <td><%= cultivar.name %></td>
+        <td><%= cultivar.species.name %></td>
+        <td><%= cultivar.fruit_weight_gr %></td>
+        <td>
+        <%= link_to 'המלצות יבול קשורות', cultivar_path(cultivar) %>
+        <%= link_to 'ערוך', edit_cultivar_path(cultivar) %>
+        <% if logged_in? && current_user.admin? %>
+        <%= link_to 'מחק', cultivar, method: :delete, data: { confirm: 'מחיקת זן תביא למחיקת כל המלצות היבול הקשורות אליו. האם אתה בטוח?' } %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

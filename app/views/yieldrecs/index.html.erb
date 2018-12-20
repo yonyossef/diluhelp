@@ -2,32 +2,8 @@
 
 <h1>המלצות יבול</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>מין הפרי</th>
-      <th>זן הפרי</th>
-      <th>חוזק חלקה</th>
-      <th>יבול מומלץ לדונם (ק"ג)</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @yieldrecs.each do |yieldrec| %>
-      <tr>
-        <td><%= yieldrec.cultivar.species.name %></td>
-        <td><%= yieldrec.cultivar.name %></td>
-        <td><%= yieldrec.plot_strength %></td>
-        <td><%= yieldrec.recommended_kg %></td>
-        <td><%= link_to 'הצג המלצות קשורות', yieldrec %></td>
-        <td><%= link_to 'ערוך', edit_yieldrec_path(yieldrec) %></td>
-        <td><%= link_to 'מחק', yieldrec, method: :delete, data: { confirm: 'פעולה זו תביא למחיקת המלצת היבול. האם אתה בטוח?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'yieldrecs', yieldrec_list: @yieldrecs %>
 
 <br>
 
-<%= link_to 'הוסף המלצת יבול', new_yieldrec_path %>
+<%= link_to 'הוסף המלצת יבול', new_yieldrec_path,{ :class=>"button" } %>

@@ -4,7 +4,7 @@ class YieldrecsController < ApplicationController
   # GET /yieldrecs
   # GET /yieldrecs.json
   def index
-    @yieldrecs = Yieldrec.all
+    @yieldrecs = Yieldrec.joins(:cultivar).order('cultivars.name asc')
   end
 
   # GET /yieldrecs/1
@@ -28,7 +28,7 @@ class YieldrecsController < ApplicationController
 
     respond_to do |format|
       if @yieldrec.save
-        format.html { redirect_to yieldrecs_url, notice: 'Yieldrec was successfully created.' }
+        format.html { redirect_to yieldrecs_url, notice: 'המלצת היבול נוספה בהצלחה למסד הנתונים' }
         format.json { render :index, status: :created, location: @yieldrec }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class YieldrecsController < ApplicationController
   def update
     respond_to do |format|
       if @yieldrec.update(yieldrec_params)
-        format.html { redirect_to yieldrecs_url, notice: 'Yieldrec was successfully updated.' }
+        format.html { redirect_to yieldrecs_url, notice: 'המלצת היבול עודכנה בהצלחה במסד הנתונים' }
         format.json { render :index, status: :ok, location: @yieldrec }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class YieldrecsController < ApplicationController
   def destroy
     @yieldrec.destroy
     respond_to do |format|
-      format.html { redirect_to yieldrecs_url, notice: 'Yieldrec was successfully destroyed.' }
+      format.html { redirect_to yieldrecs_url, notice: 'המלצת היבול נמחקה בהצלחה' }
       format.json { head :no_content }
     end
   end

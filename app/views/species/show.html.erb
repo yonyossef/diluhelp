@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>מין הפרי</strong>
   <%= @species.name %>
 </p>
-
-<%= link_to 'Edit', edit_species_path(@species) %> |
-<%= link_to 'Back', species_index_path %>
+<br>
+<h3>זנים קשורים</h3>
+<%= render 'cultivars/cultivars', cultivar_list: @species.cultivars.order('cultivars.name ASC').all %>
+<br>
+<%= link_to 'ערוך מין', edit_species_path(@species) %> |
+<%= link_to 'אינדקס מינים', species_index_path %>

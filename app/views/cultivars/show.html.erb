@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>מין הפרי</strong>
+  <%= @cultivar.species.name %>
+</p>
+<p>
+  <strong>שם הזן</strong>
   <%= @cultivar.name %>
 </p>
-
 <p>
-  <strong>Fruit weight gr:</strong>
+  <strong>משקל פרי מקובל</strong>
   <%= @cultivar.fruit_weight_gr %>
 </p>
-
-<p>
-  <strong>Species:</strong>
-  <%= @cultivar.species %>
-</p>
-
-<%= link_to 'Edit', edit_cultivar_path(@cultivar) %> |
-<%= link_to 'Back', cultivars_path %>
+<br>
+<h3>המלצות יבול קשורות</h3>
+<%= render 'yieldrecs/yieldrecs', yieldrec_list: @cultivar.yieldrecs.order('yieldrecs.plot_strength ASC').all %>
+<br>
+<%= link_to 'ערוך זן', edit_cultivar_path(@cultivar) %> |
+<%= link_to 'אינדקס זנים', cultivars_path %>

@@ -2,31 +2,8 @@
 
 <h1>זנים</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>שם זן</th>
-      <th>משקל פרי (גרם)</th>
-      <th>מין</th>
-      <th colspan="6"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cultivars.each do |cultivar| %>
-      <tr>
-        <td><%= cultivar.name %></td>
-        <td><%= cultivar.fruit_weight_gr %></td>
-        <td><%= cultivar.species.name %></td>
-        <td><%= link_to 'ערוך', edit_cultivar_path(cultivar) %></td>
-        <% if logged_in? && current_user.admin? %>
-        <td><%= link_to 'מחק', cultivar, method: :delete, data: { confirm: 'מחיקת זן תביא למחיקת כל המלצות היבול הקשורות אליו. האם אתה בטוח?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'cultivars', cultivar_list: @cultivars.order('cultivars.name ASC') %>
 
 <br>
 
-<%= link_to 'הוסף זן', new_cultivar_path %>
+<%= link_to 'הוסף זן', new_cultivar_path,{ :class=>"button" } %>
