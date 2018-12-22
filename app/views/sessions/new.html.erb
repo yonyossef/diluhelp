@@ -1,29 +1,21 @@
 <h1 align="center">כניסה למורשי עריכה</h1>
 <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
-<div class="form-group">
-  <div class="control-label col-sm-2">
+  <div class="flabel">
     <%= f.label "דואר אלקטרוני" %>
   </div>
-  <div class="col-sm-8">
+  <div>
     <%= f.email_field :email, class: "form-control", placeholder: "דואר אלקטרוני", autofocus: true %>
   </div>
-</div>
 
-<div class="form-group">
-  <div class="control-label col-sm-2">
+  <div class="flabel">
     <%= f.label "סיסמא" %>
   </div>
-  <div class="col-sm-8">
-    <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+  <div>
+    <%= f.password_field :password, autocomplete: "off" %>
   </div>
-</div>
-<div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <%= f.submit "כניסה למורשים", class: 'btn btn-primary btn-lg' %>
+  
+  <br>
+  <div>
+    <%= f.submit "כניסה למורשים", class: 'button' %>
   </div>
-</div>
 <% end %>
-
-<div class="col-xs-4 col-xs-offset-4">
-  [ <%= link_to "חזור", root_path %> ]
-</div>
