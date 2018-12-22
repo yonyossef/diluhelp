@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>מינים</h1>
+<h1 class="hdr">מינים</h1>
+<br>
+<%= link_to 'הוסף מין', new_species_path ,{ :class=>"button" }%>
+<br><br><br>
 
 <table id="species">
   <thead>
@@ -15,10 +18,10 @@
       <tr>
         <td><%= species.name %></td>
         <td>
-        <%= link_to 'זנים קשורים', species_path(species) %>
-        <%= link_to 'ערוך', edit_species_path(species) %>
+        <%= link_to 'זנים קשורים', species_path(species), { :class => "button smallbutton" } %>
+        <%= link_to 'ערוך', edit_species_path(species), { :class => "button smallbutton" } %>
         <% if logged_in? && current_user.admin? %>
-        <%= link_to 'מחק', species, method: :delete, data: { confirm: 'מחיקת מין תביא למחיקת כל הזנים הקשורים וכל המלצות היבול. האם אתה בטוח?' } %>
+        <%= link_to 'מחק', species, { :method => :delete, :class => "button smallbutton", :data => { :confirm => 'מחיקת מין תביא למחיקת כל הזנים הקשורים וכל המלצות היבול. האם אתה בטוח?'  }} %>
         <% end %>
         </td>
       </tr>
@@ -28,4 +31,4 @@
 
 <br>
 
-<%= link_to 'הוסף מין', new_species_path ,{ :class=>"button" }%>
+

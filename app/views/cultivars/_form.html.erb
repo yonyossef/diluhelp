@@ -12,21 +12,21 @@
   <% end %>
   
   <div class="field">
-    <%= f.label "בחר את מין הפרי" %>
-    <%= f.collection_select :species_id, Species.order(:name),:id,:name, {:prompt => 'בחר מין פרי', :include_blank=> false} %>
+    <%= f.label "בחר את מין הפרי", :class => "flabel" %>
+    <%= f.collection_select :species_id, Species.order(:name), :id, :name, {:prompt => "בחר מין", :include_blank => false} %>
   </div>
 
   <div class="field">
-    <%= f.label "שם הזן" %>
-    <%= f.text_field :name, autocomplete: "off" %>
+    <%= f.label "שם הזן", :class => "flabel" %>
+    <%= f.text_field :name, autocomplete: "off", class: 'finput' %>
   </div>
 
   <div class="field">
-    <%= f.label "משקל פרי מקובל (גרם)" %>
-    <%= f.number_field :fruit_weight_gr, autocomplete: "off" %>
+    <%= f.label "משקל פרי (גרם)", :class => "flabel" %>
+    <%= f.number_field :fruit_weight_gr, autocomplete: "off", class: 'finput' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "שמור"%>
+    <%= f.submit "שמור", class: 'finput' %>
   </div>
 <% end %>

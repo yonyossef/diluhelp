@@ -17,8 +17,8 @@
         <td><%= yieldrec.plot_strength %></td>
         <td><%= yieldrec.recommended_kg %></td>
         <td>
-        <%= link_to 'ערוך', edit_yieldrec_path(yieldrec) %>
-        <%= link_to 'מחק', yieldrec, method: :delete, data: { confirm: 'פעולה זו תביא למחיקת המלצת היבול. האם אתה בטוח?' } %>
+        <%= link_to 'ערוך', edit_yieldrec_path(yieldrec), { :class => "button smallbutton" } %>
+        <%= link_to 'מחק', yieldrec, { :method => :delete, :class => "button smallbutton", :data => { :confirm => 'פעולה זו תביא למחיקת המלצת היבול. האם אתה בטוח?' }} %>
         </td>
       </tr>
     <% end %>

@@ -54,11 +54,11 @@ body {
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 16px; 
+  font-size: 18px; 
   border: none;
   outline: none;
   color: white;
-  padding: 14px 16px;
+  padding: 12px 14px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
@@ -103,13 +103,100 @@ body {
 .button {
   background-color: #4caf50;
   border: none;
+  border-radius: 8px;
   color: white;
   padding: 15px 25px;
   text-align: center;
-  font-size: 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
 }
 
+.button:visited {
+  color: white;
+}
+
+
 .button:hover {
   background-color: green;
+}
+
+.smallbutton {
+  border-radius: 3px;
+  padding: 6px 16px;
+  font-size: 12px;
+}
+
+.finput[type=text], input[type=number], input[type=password], input[type=email], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: auto;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 30px;
+}
+
+.hdr {
+  text-align: center;
+  font-size: 30px;
+}
+
+.flabel {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.finput[type=submit] {
+  margin: auto;
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  background: lightgrey;
+  color: black;
+  font-size: 24px;
+}
+
+.finput[type=submit]:hover {
+  background: grey;
+  cursor: pointer;
+}
+
+.backbutton {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  background: lightgrey;
+}
+
+.backbutton:visited {
+  color: black;
+}
+.backbutton:hover {
+  background: grey;
+}
+
+.bottomlink {
+  font-size: 32px;
+  color:#FFFFFF
 }

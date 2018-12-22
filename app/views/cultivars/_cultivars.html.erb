@@ -15,10 +15,10 @@
         <td><%= cultivar.species.name %></td>
         <td><%= cultivar.fruit_weight_gr %></td>
         <td>
-        <%= link_to 'המלצות יבול קשורות', cultivar_path(cultivar) %>
-        <%= link_to 'ערוך', edit_cultivar_path(cultivar) %>
+        <%= link_to 'המלצות יבול קשורות', cultivar_path(cultivar), { :class => "button smallbutton" } %>
+        <%= link_to 'ערוך', edit_cultivar_path(cultivar), { :class => "button smallbutton" } %>
         <% if logged_in? && current_user.admin? %>
-        <%= link_to 'מחק', cultivar, method: :delete, data: { confirm: 'מחיקת זן תביא למחיקת כל המלצות היבול הקשורות אליו. האם אתה בטוח?' } %>
+        <%= link_to 'מחק', cultivar, { :method => :delete, :class => "button smallbutton", :data => { :confirm => 'מחיקת זן תביא למחיקת כל המלצות היבול הקשורות אליו. האם אתה בטוח?' }} %>
         <% end %>
         </td>
       </tr>

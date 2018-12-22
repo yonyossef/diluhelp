@@ -1,19 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class="flabel">
   <strong>דואר אלקטרוני</strong>
   <%= @user.email %>
 </p>
 <% if current_user.admin? %>
-<p>
+<p class="flabel">
   <strong>מזהה משתמש</strong>
   <%= @user.id %>
 </p>
 <% end %>
-<p>
+<p class="flabel">
   <strong>מורשה עריכה</strong>
   <%= @user.admin ? "כן" : "לא" %>
 </p>
-
-<%= link_to 'ערוך', edit_user_path(@user) %> |
-<%= link_to 'חזור', :back %>
+<br><br>
+<%= link_to 'ערוך משתמש', edit_user_path(@user), class: 'button' %>

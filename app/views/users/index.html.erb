@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>משתמשים</h1>
+<h1 class="hdr">משתמשים</h1>
+<br>
+<%= link_to 'הרשמה', signup_path,{ :class=>"button" } %>
+<br><br><br>
 
 <table id="users">
   <thead>
@@ -26,10 +29,10 @@
         <% end %>
         <% if logged_in? and (user == current_user || current_user.admin? ) %>
         <td>
-          <%= link_to 'הצג', user %>
-          <%= link_to 'ערוך', edit_user_path(user) %>
+          <%= link_to 'הצג', user, { :class => "button smallbutton" } %>
+          <%= link_to 'ערוך', edit_user_path(user), { :class => "button smallbutton" } %>
           <% if current_user.admin? %>
-          <%= link_to 'מחק', user, method: :delete, data: { confirm: 'נא אשר מחיקת משתמש' } %>
+          <%= link_to 'מחק', user, { :method => :delete, :class => "button smallbutton", :data => { :confirm => 'נא אשר מחיקת משתמש' }} %>
           <% end %>
         </td>
         <% end %>
@@ -42,4 +45,3 @@
 
 <br>
 
-<%= link_to 'הרשמה', signup_path,{ :class=>"button" } %>

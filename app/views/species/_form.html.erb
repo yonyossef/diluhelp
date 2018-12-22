@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "שם המין" %>
-    <%= f.text_field :name, autocomplete: "off" %>
+    <%= f.label "שם המין", :class => "flabel" %>
+    <%= f.text_field :name, autocomplete: "off", class: 'finput' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "שמור" %>
+    <%= f.submit "שמור", class: 'finput' %>
   </div>
 <% end %>

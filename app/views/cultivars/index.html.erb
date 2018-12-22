@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>זנים</h1>
+<h1 class="hdr">זנים</h1>
+<br>
+<%= link_to 'הוסף זן', new_cultivar_path,{ :class=>"button" } %>
+<br><br><br>
 
 <%= render 'cultivars', cultivar_list: @cultivars.order('cultivars.name ASC') %>
 
 <br>
 
-<%= link_to 'הוסף זן', new_cultivar_path,{ :class=>"button" } %>

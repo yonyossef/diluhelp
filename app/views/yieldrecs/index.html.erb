@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>המלצות יבול</h1>
+<h1 class="hdr">המלצות יבול</h1>
+<br>
+<%= link_to 'הוסף המלצת יבול', new_yieldrec_path,{ :class=>"button" } %>
+<br><br><br>
 
 <%= render 'yieldrecs', yieldrec_list: @yieldrecs %>
 
 <br>
 
-<%= link_to 'הוסף המלצת יבול', new_yieldrec_path,{ :class=>"button" } %>

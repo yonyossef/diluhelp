@@ -8,39 +8,13 @@
 </head>
 <body>
 
+<%= render 'layouts/navigate' %>
 
-<div class="topnav">
-  <% if logged_in? %>
-    <a><%= link_to "יציאה", logout_path, method: :delete %></a>
-    <div class="dropdown">
-      <button class="dropbtn">עריכה
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href=<%=species_index_path%>>מינים</a>
-        <a href=<%=cultivars_path%>>זנים</a>
-        <a href=<%=yieldrecs_path%>>המלצות יבול</a>
-        <% if current_user.admin? %>
-        <a href=<%=users_path%>>משתמשים</a>
-        <% else %>
-        <a href=<%=edit_user_path(current_user)%>>החשבון שלי</a>
-        <% end %>
-      </div>
-    </div> 
-  <% else %>
-    <a href=<%=login_path%>>כניסה למורשים</a>
-  <% end %>
-  <div class="topnav-right">
-    <a href="mailto:annatziso@gmail.com?Subject=יצירת%20קשר%20DiluHelp" target="_top">צור קשר</a>
-    <a class="active" href=<%=root_path%>>מחשבון</a>
-  </div>
-</div>
+
 
 <div style="padding-right:16px" dir="rtl">
   <%= yield %>
 </div>
-
-
 
 </body>
 </html>
