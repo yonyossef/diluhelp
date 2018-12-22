@@ -70,6 +70,6 @@ class CultivarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cultivar_params
-      params.require(:cultivar).permit(:name, :fruit_weight_gr, :species_id)
+      params.require(:cultivar).permit(:name, :fruit_weight_gr, :species_id, :has_arms)
     end
 end

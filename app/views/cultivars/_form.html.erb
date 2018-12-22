@@ -25,6 +25,12 @@
     <%= f.label "משקל פרי (גרם)", :class => "flabel" %>
     <%= f.number_field :fruit_weight_gr, autocomplete: "off", class: 'finput' %>
   </div>
+  
+  <div class="field">
+    <%= f.label "האם לעץ יש זרועות?", :class => "flabel" %>
+    <%= f.select :has_arms, [["כן", true], ["לא", false]] %>
+    
+  </div>
 
   <div class="actions">
     <%= f.submit "שמור", class: 'finput' %>

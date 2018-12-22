@@ -4,6 +4,7 @@
       <th>שם זן</th>
       <th>מין הפרי</th>      
       <th>משקל פרי (גרם)</th>
+      <th>האם לעץ יש זרועות?</th>
       <th>פעולות</th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
         <td><%= cultivar.name %></td>
         <td><%= cultivar.species.name %></td>
         <td><%= cultivar.fruit_weight_gr %></td>
+        <td><%= check_box "cultivar", "has_arms", {:checked => cultivar.has_arms, :disabled => true}%></td>
         <td>
         <%= link_to 'המלצות יבול קשורות', cultivar_path(cultivar), { :class => "button smallbutton" } %>
         <%= link_to 'ערוך', edit_cultivar_path(cultivar), { :class => "button smallbutton" } %>

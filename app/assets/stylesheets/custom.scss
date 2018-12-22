@@ -139,6 +139,18 @@ body {
   font-size: 30px;
 }
 
+.finput[type=checkbox] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: auto;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 30px;
+  transform: scale(2);
+}
+
 .hdr {
   text-align: center;
   font-size: 30px;

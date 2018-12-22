@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181220164425) do
+ActiveRecord::Schema.define(version: 20181222121929) do
 
   create_table "cultivars", force: :cascade do |t|
     t.string   "name"
     t.integer  "fruit_weight_gr"
     t.integer  "species_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "has_arms",        default: false
     t.index ["species_id"], name: "index_cultivars_on_species_id"
   end
 
