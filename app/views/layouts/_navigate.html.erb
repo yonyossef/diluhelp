@@ -1,7 +1,7 @@
 <div class="topnav">
   <% if logged_in? %>
     <a><%= link_to 'חזור', :back, {:class => "smallbutton"} %>
-    <%= link_to "יציאת משתמש", logout_path, {:method => :delete, :class => "logoutbutton"} %></a>
+    <%= link_to "יציאת משתמש", logout_path, {:method => :delete, :class => "smallbutton"} %></a>
     <div class="dropdown">
       <button class="dropbtn">עריכת מסד נתונים
         <i class="fa fa-caret-down"></i>
