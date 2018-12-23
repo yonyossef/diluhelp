@@ -1,0 +1,39 @@
+<h1 class="hdr">נתוני חלקה</h1>
+
+<%= form_for @plot do |f| %>
+    <div class="field">
+        <%= f.label :name, :class => "flabel" %>
+        <%= f.text_field :name, class: 'finput' %>
+    </div>
+    <div class="field">
+        <%= f.label :species_id, :class => "flabel" %>
+        <%= f.collection_select :species_id, Species.order(:name), :id, :name, include_blank: true %>
+    </div>
+    <div class="field">
+        <%= f.label :Cultivar, "Cultivar", :class => "flabel" %><br />
+        <%= f.grouped_collection_select :cultivar_id, Species.order(:name), :cultivars, :name, :id, :name, include_blank: true %>
+    </div>
+    <div class="field">
+        <%= f.label :arms, :class => "flabel" %>
+        <%= f.number_field :arms, class: 'finput' %>
+    </div>
+    <div class="field">
+        <%= f.label :linedist_meters, :class => "flabel" %>
+        <%= f.number_field :linedist_meters, class: 'finput' %>
+    </div>
+    <div class="field">
+        <%= f.label :treedist_meters, :class => "flabel" %>
+        <%= f.number_field :treedist_meters, class: 'finput' %>
+    </div>
+    <div class="field">
+        <%= f.label "בחר את חוזק החלקה", :class => "flabel" %>
+        <%= f.select :strength, options_for_select([['רגילה'], ['צעירה'], ['חלשה']]) %>
+    </div>
+    <div class="field">
+        <%= f.label "בחר יבול רצוי לדונם (ק''ג)", :class => "flabel" %>
+        <%= f.select :yieldwish_kg, options_for_select([[3000], [3500], [4000], [4500], [5000], [5500], [6000], [6500], [7000]]) %>
+    </div>
+    
+    <%= f.submit "חשב", class: 'finput' %>
+<% end %>
+

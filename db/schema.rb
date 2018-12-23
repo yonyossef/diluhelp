@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181222121929) do
+ActiveRecord::Schema.define(version: 20181223105551) do
 
   create_table "cultivars", force: :cascade do |t|
     t.string   "name"
@@ -20,6 +20,25 @@ ActiveRecord::Schema.define(version: 20181222121929) do
     t.datetime "updated_at",                      null: false
     t.boolean  "has_arms",        default: false
     t.index ["species_id"], name: "index_cultivars_on_species_id"
+  end
+
+  create_table "plots", force: :cascade do |t|
+    t.integer  "linedist_meters"
+    t.integer  "treedist_meters"
+    t.integer  "arms"
+    t.integer  "yieldwish_kg"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "name"
+    t.integer  "trees_per_dunam"
+    t.integer  "kg_per_tree"
+    t.integer  "fruits_per_tree"
+    t.integer  "fruits_per_arm"
+    t.integer  "cultivar_id"
+    t.integer  "species_id"
+    t.string   "strength"
+    t.index ["cultivar_id"], name: "index_plots_on_cultivar_id"
+    t.index ["species_id"], name: "index_plots_on_species_id"
   end
 
   create_table "species", force: :cascade do |t|

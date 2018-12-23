@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  linedist_meters: 1
+  treedist_meters: 1
+  arms: 1
+  yieldwish_kg: 1
+
+two:
+  linedist_meters: 1
+  treedist_meters: 1
+  arms: 1
+  yieldwish_kg: 1
