@@ -12,6 +12,15 @@
     <div class="field">
         <%= f.label :Cultivar, "Cultivar", :class => "flabel" %><br />
         <%= f.grouped_collection_select :cultivar_id, Species.order(:name), :cultivars, :name, :id, :name, include_blank: true %>
+                <!--<select name="plot[cultivar_id]" id="plot_cultivar_id"><option value=""></option>-->
+                <!--    <optgroup label="אגס">-->
+                <!--        <option value="2">יפיופי</option>-->
+                <!--    </optgroup>-->
+    </div>
+    <div class="field">
+        <%= f.label :Yieldrec, "Yieldrec", :class => "flabel" %><br />
+        <!--grouped_collection_select(object,         method,                collection, group_method, group_label_method, option_key_method, option_value_method, options = {}, html_options = {}) public-->
+        <%= f.grouped_collection_select :yieldrec_id, Cultivar.order(:name), :yieldrecs, :name,        :id,                :plot_strength,     include_blank: true %>
     </div>
     <div class="field">
         <%= f.label :arms, :class => "flabel" %>
@@ -25,14 +34,7 @@
         <%= f.label :treedist_meters, :class => "flabel" %>
         <%= f.number_field :treedist_meters, class: 'finput' %>
     </div>
-    <div class="field">
-        <%= f.label "בחר את חוזק החלקה", :class => "flabel" %>
-        <%= f.select :strength, options_for_select([['רגילה'], ['צעירה'], ['חלשה']]) %>
-    </div>
-    <div class="field">
-        <%= f.label "בחר יבול רצוי לדונם (ק''ג)", :class => "flabel" %>
-        <%= f.select :yieldwish_kg, options_for_select([[3000], [3500], [4000], [4500], [5000], [5500], [6000], [6500], [7000]]) %>
-    </div>
+
     
     <%= f.submit "חשב", class: 'finput' %>
 <% end %>

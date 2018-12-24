@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181223105551) do
+ActiveRecord::Schema.define(version: 20181223115150) do
 
   create_table "cultivars", force: :cascade do |t|
     t.string   "name"
@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 20181223105551) do
     t.integer  "cultivar_id"
     t.integer  "species_id"
     t.string   "strength"
+    t.integer  "yieldrec_id"
     t.index ["cultivar_id"], name: "index_plots_on_cultivar_id"
     t.index ["species_id"], name: "index_plots_on_species_id"
+    t.index ["yieldrec_id"], name: "index_plots_on_yieldrec_id"
   end
 
   create_table "species", force: :cascade do |t|
