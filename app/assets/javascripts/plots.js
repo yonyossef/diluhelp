@@ -3,6 +3,8 @@ jQuery(function() {
   
   $('#plot_cultivar_id').parent().hide();
   $('#plot_yieldrec_id').parent().hide();
+  $('#plot_yieldwish_kg').parent().hide();
+  
   cultivars = $('#plot_cultivar_id').html();
   yieldrecs = $('#plot_yieldrec_id').html();
   
@@ -28,20 +30,33 @@ jQuery(function() {
         
         escaped_cultivar = cultivar.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
         yoptions = $(yieldrecs).filter("optgroup[label=" + escaped_cultivar + "]").html();   
+        // <optgroup label="בונבוני"><option reckg="2333" carms="false" value="3">רגילה</option></optgroup>  
         
-        $('#plot_yieldrec_id').html(yoptions);
+        if (yoptions) {
+          $('#plot_yieldrec_id').html(yoptions);
+          $('#plot_yieldrec_id').parent().show();
+          
         
-        return $('#plot_yieldrec_id').parent().show();
-      
-
-      //   if (yoptions) {
-      //     
-      //     return $('#plot_yieldrec_id').
-          //$('#plot_cultivar_id').parent().show();
-      //   } else {
-      //     $('#plot_yieldrec_id').empty)();
-      //     return $('#plot_yieldrec_id').parent().hide();
-      //   }
+          return $('#plot_yieldrec_id').change(function() {
+            var yieldrec, ideal;
+            
+            yieldrec = $('#plot_yieldrec_id :selected').text();
+            ideal = $('#plot_yieldrec_id :selected').attr('reckg');
+            console.log(yieldrec);
+            console.log("RECKG="+ideal);
+  
+            $('#plot_yieldwish_kg option').each(function() {
+              $(this).html(function(n,old) {
+                var sum = old + ideal;
+                return sum;
+              });
+            });
+            $('#plot_yieldwish_kg').parent().show();
+          });
+        } else {
+          $('#plot_yieldrec_id').empty();
+          return $('#plot_yieldrec_id').parent().hide();
+        }
       });
     } else {
       $('#plot_cultivar_id').empty();
