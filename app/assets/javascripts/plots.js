@@ -5,6 +5,8 @@ jQuery(function() {
   $('#plot_yieldrec_id').parent().hide();
   $('#plot_yieldwish_kg').parent().hide();
   $('#plot_arms').parent().hide();
+  $('#plot_linedist_meters').parent().hide();
+  $('#plot_treedist_meters').parent().hide();
   
   
   cultivars = $('#plot_cultivar_id').html();
@@ -22,6 +24,7 @@ jQuery(function() {
     
     if (options) {
       $('#plot_cultivar_id').html(options);
+      $("#plot_cultivar_id").prepend("<option value='' selected='selected'>בחר את זן הפרי</option>");
       $('#plot_cultivar_id').parent().show();
       
       return $('#plot_cultivar_id').change(function() {
@@ -43,7 +46,10 @@ jQuery(function() {
         
         if (yoptions) {
           $('#plot_yieldrec_id').html(yoptions);
+          $("#plot_yieldrec_id").prepend("<option value='' selected='selected'>בחר את חוזק החלקה</option>");
           $('#plot_yieldrec_id').parent().show();
+          $('#plot_linedist_meters').parent().show();
+          $('#plot_treedist_meters').parent().show();
           
         
           return $('#plot_yieldrec_id').change(function() {
