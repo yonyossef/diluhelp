@@ -12,7 +12,9 @@
     <div class="field">
         <%= f.label :Cultivar, "Cultivar", :class => "flabel" %><br />
         <!--include_blank needs a fix-->
-        <%= f.grouped_collection_select :cultivar_id, Species.order(:name), :cultivars, :name, :id, :name, {include_blank: true} %> 
+        <%#= f.grouped_collection_select :cultivar_id, Species.order(:name), :cultivars, :name, :id, :name, {include_blank: true} %>
+        <%= f.select :cultivar_id, grouped_options_for_select(Species.order(:name).map{ |group| [group.name, group.cultivars.map{ |c| [c.name, c.id, {'carms'=>c.has_arms}] } ] }, {:include_blank => 'name of your blank prompt'}) %>
+
                 <!--<select name="plot[cultivar_id]" id="plot_cultivar_id"><option value=""></option>-->
                 <!--    <optgroup label="אגס">-->
                 <!--        <option value="2">יפיופי</option>-->
