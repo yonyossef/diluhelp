@@ -31,22 +31,25 @@
 }
 
 
-#plot {
+#plot, #plot_results {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 35%;
+  margin: auto;
 }
 
-#plot td, #plots th {
+#plot td, #plots th, #plot_results td, #plot_results th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
 #plot tr:nth-child(even){background-color: #f2f2f2;}
+#plot_results tr:nth-child(even){background-color: #f2f2f2;}
 
 #plot tr:hover {background-color: #ddd;}
+#plot_results tr:hover {background-color: #ddd;}
 
-#plot th {
+#plot th, #plot_results th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: right;
