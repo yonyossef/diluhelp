@@ -1,0 +1,53 @@
+
+<%= form_for plot do |f| %>
+    <div class="field">
+        <%= f.label :name, "שם החלקה", :class => "flabel" %>
+        <%= f.text_field :name, class: 'finput' %>
+    </div>
+    <div class="field">
+        <%= f.label :species_id, "מין הפרי", :class => "flabel" %>
+        <%= f.collection_select :species_id, Species.order(:name), :id, :name %>
+    </div>
+    <div class="field">
+        <%= f.label :Cultivar, "זן הפרי", :class => "flabel" %><br />
+        <!--include_blank needs a fix-->
+        <%#= f.grouped_collection_select :cultivar_id, Species.order(:name), :cultivars, :name, :id, :name, {include_blank: true} %>
+        <%= f.select :cultivar_id, grouped_options_for_select(Species.order(:name).map{ |group| [group.name, group.cultivars.map{ |c| [c.name, c.id, {'carms'=>c.has_arms}] } ] }, {:include_blank => 'name of your blank prompt'}) %>
+
+                <!--<select name="plot[cultivar_id]" id="plot_cultivar_id"><option value=""></option>-->
+                <!--    <optgroup label="אגס">-->
+                <!--        <option value="2">יפיופי</option>-->
+                <!--    </optgroup>-->
+    </div>
+    <div class="field">
+        <%= f.label :plot_strength, "חוזק החלקה", :class => "flabel" %><br />
+        <!--grouped_collection_select(object,         method,                collection, group_method, group_label_method, option_key_method, option_value_method, options = {}, html_options = {}) public-->
+        <%#= f.grouped_collection_select :yieldrec_id, Cultivar.order(:name), :yieldrecs, :name,        :id,                :plot_strength,     { "chasarms" => :recommended_kg } %>
+        <%= f.select :yieldrec_id, grouped_options_for_select(Cultivar.order(:name).map{ |group| [group.name, group.yieldrecs.map{ |c| [c.plot_strength, c.id, {'reckg'=>c.recommended_kg, 'carms'=>c.cultivar.has_arms}] } ] }, {:include_blank => 'name of your blank prompt'}) %>
+    </div>
+    <!--<select name="plot[yieldrec_id]" id="plot_yieldrec_id">
+            <optgroup label="בונבוני">
+                <option reckg="2333" carms="false" value="3">רגילה</option>
+            </optgroup>
+            <optgroup label="ביבי"></optgroup><optgroup label="יפיופי"><option reckg="222" carms="false" value="6">צעירה</option></optgroup><optgroup label="מאמי"></optgroup><optgroup label="מתוקי"></optgroup><optgroup label="נינו"></optgroup><optgroup label="סימו"></optgroup><optgroup label="צוציק"></optgroup><optgroup label="קוסקוס"></optgroup><optgroup label="קוקו"></optgroup><optgroup label="שישי"></optgroup></select>-->
+    <div>
+        <%= f.label :yieldrec, "יבול צפוי (ק''ג לדונם)", :class => "flabel" %><br />
+        <%= f.select :yieldwish_kg, options_for_select([[-1000],[-500],[0],[500],[1000]]) %>
+    </div>
+    <div class="field">
+        <%= f.label :arms, "מס' זרועות לעץ", :class => "flabel" %>
+        <%= f.number_field :arms, class: 'finput' %>
+    </div>
+    <div class="field">
+        <%= f.label :linedist_meters, "מרחק בין שורות (מטר)", :class => "flabel" %>
+        <%= f.number_field :linedist_meters, class: 'finput' %>
+    </div>
+    <div class="field">
+        <%= f.label :treedist_meters, "מרחק בין עצים (מטר)", :class => "flabel" %>
+        <%= f.number_field :treedist_meters, class: 'finput' %>
+    </div>
+
+    
+    <%= f.submit "חשב נתוני דילול", class: 'finput', id: 'calcsubmit' %>
+<% end %>
+
