@@ -29,3 +29,27 @@
 .container .btn:hover {
   background-color: grey;
 }
+
+
+#plot {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#plot td, #plots th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#plot tr:nth-child(even){background-color: #f2f2f2;}
+
+#plot tr:hover {background-color: #ddd;}
+
+#plot th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: right;
+  background-color: #4CAF50;
+  color: white;
+}

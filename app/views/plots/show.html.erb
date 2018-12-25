@@ -1,0 +1,30 @@
+<h1 class="hdr">תוצאות</h1>
+
+<table id="plot">
+  <thead>
+    <tr>
+      <th>תכונה</th>
+      <th>ערך</th>      
+      <th>פעולות</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+        <td>שם החלקה</td>
+        <td><%= @plot.name %></td>
+    </tr>
+    <tr>
+        <td>שם מין הפרי</td>
+        <td><%= @plot.species.name %></td>
+    </tr>
+    <tr>
+        <td>שם זן הפרי</td>
+        <td><%= Cultivar.find(@plot.cultivar_id).name %></td>
+    </tr>
+    <tr>
+        <td>משקל פרי ממוצע לזן זה</td>
+        <td><%= Cultivar.find(@plot.cultivar_id).fruit_weight_gr %></td>
+    </tr>
+  </tbody>
+</table>
