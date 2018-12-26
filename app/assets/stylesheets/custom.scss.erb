@@ -13,7 +13,7 @@
   background-color: #333;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: left;
 }
 
 .topnav a {
@@ -38,6 +38,7 @@
 /* Right-aligned section inside the top navigation */
 .topnav-right {
   //float: right;
+  justify-content: right;
 }
 
 // @media screen and (max-width: 600px) {  https://www.w3schools.com/css/css_navbar.asp
@@ -171,6 +172,13 @@
 .hdr {
   text-align: center;
   font-size: 40px;
+}
+
+
+@media (max-width: 768px) {
+  .hdr {
+    font-size: 20px;
+  }
 }
 
 .flabel {

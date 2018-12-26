@@ -1,9 +1,8 @@
 <div class="topnav">
   <% if logged_in? %>
-    <a><%= link_to 'חזור', :back, {:class => "smallbutton"} %>
-    <%= link_to "יציאת משתמש", logout_path, {:method => :delete, :class => "smallbutton"} %></a>
+    <%= link_to "יציאה", logout_path, {:method => :delete, :class => "smallbutton"} %></a>
     <div class="dropdown">
-      <button class="dropbtn">עריכת מסד נתונים
+      <button class="dropbtn">עריכה
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
@@ -22,7 +21,7 @@
     <a href=<%=login_path%>>כניסה למורשים</a>
   <% end %>
   <div class="topnav-right">
-    <a href="mailto:annatziso@gmail.com?Subject=יצירת%20קשר%20DiluHelp" target="_top">צור קשר</a>
     <a class="active" href=<%=root_path%>>מחשבון</a>
+    <a href="mailto:annatziso@gmail.com?Subject=יצירת%20קשר%20DiluHelp" target="_top">צור קשר</a>
   </div>
 </div>
