@@ -56,7 +56,7 @@ main {
 h1 {
   font-size: 2em;
   margin: 0;
-  padding: 100px 0;
+  padding: 20px 0;
 }
 
 
@@ -93,6 +93,18 @@ pre {
 
 a {
   background-color: transparent;
+}
+
+p {
+    display: block;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+p#notice {
+  margin: 0;
 }
 
 /**

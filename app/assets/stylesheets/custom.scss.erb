@@ -4,6 +4,7 @@
 // }
 
 .main {
+  padding: 20px;
   background-image: url(<%= asset_path('appletrees.jpg') %>);
   height: 100vh;
 }
@@ -129,6 +130,8 @@
   font-weight: bold;
   cursor: pointer;
   margin: auto;
+  margin-bottom: 5px;
+  display: inline-block;
 }
 
 .button:visited {
@@ -142,8 +145,17 @@
 
 .smallbutton {
   border-radius: 3px;
-  padding: 6px 16px;
-  font-size: 12px;
+  padding: 6px 6px;
+  //margin: 20px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .button.smallbutton {
+    font-size: 12px;
+    //overflow: hidden;
+    //text-overflow: ellipsis;
+  }
 }
 
 .finput[type=text], input[type=number], input[type=password], input[type=email], select {
@@ -182,7 +194,7 @@
 }
 
 .flabel {
-  margin-top: 20px;
+  //margin-top: 20px;
   margin-bottom: 10px;
   font-size: 24px;
   background-color: #4caf50;
@@ -239,7 +251,7 @@
 }
 
 img.center {
-display: block;
-margin-left: auto;
-margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
