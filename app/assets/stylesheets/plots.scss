@@ -51,7 +51,9 @@
 }
 
 #plot tr:nth-child(even){background-color: #f2f2f2;}
+#plot tr:nth-child(odd){background-color: #ffffff;}
 #plot_results tr:nth-child(even){background-color: #f2f2f2;}
+#plot_results tr:nth-child(odd){background-color: #ffffff;}
 
 #plot tr:hover {background-color: #ddd;}
 #plot_results tr:hover {background-color: #ddd;}
