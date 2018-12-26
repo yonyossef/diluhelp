@@ -1,3 +1,4 @@
+<br>
 <h1 class="hdr"><%= @plot.name %>נתוני חלקה</h1>
 
 <table id="plot">
@@ -35,7 +36,9 @@
     </tr>
   </tbody>
 </table>
-
+<br>
+<%= link_to 'חשב נתוני חלקה נוספת', new_plot_path, { :class => "button", :id => "plotshow" } %>
+<br>
 <h1 class="hdr">תוצאות מחשבון דילול חלקה <%= Yieldrec.find(@plot.yieldrec_id).plot_strength %></h1>
 
 <table id="plot_results">
@@ -48,12 +51,12 @@
 
   <tbody>
     <tr>
-        <td>צפי יבול מומלץ</td>
+        <td>צפי יבול מומלץ (ק"ג)</td>
         <% @base_yield = Yieldrec.find(@plot.yieldrec_id).recommended_kg %>
         <td><%= @plot.yieldwish_kg + @base_yield %></td>
     </tr>
     <tr>
-        <td>קילוגרם פרי לעץ</td>
+        <td>כמות פרי לעץ (ק"ג)</td>
         <td><%= @plot.kg_per_tree %></td>
     </tr>
     <tr>
@@ -69,6 +72,8 @@
     
   </tbody>
 </table>
+<br>
+
 
     
     

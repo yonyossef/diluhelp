@@ -34,13 +34,14 @@
 #plot, #plot_results {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 35%;
+  width: 100%;
   margin: auto;
 }
 
-#plot td, #plots th, #plot_results td, #plot_results th {
+#plot td, #plot th, #plot_results td, #plot_results th {
   border: 1px solid #ddd;
-  padding: 8px;
+  font-size: 26px;
+  padding: 12px;
 }
 
 #plot tr:nth-child(even){background-color: #f2f2f2;}
@@ -55,4 +56,18 @@
   text-align: right;
   background-color: #4CAF50;
   color: white;
+}
+
+#plotshow, .button {
+  background-color: #908d8d;
+  width: 20%;
+}
+
+
+#plotshow, .button:visited {
+  background-color: #908d8d;
+}
+
+#plotshow, .button:hover {
+  background-color: #636262;
 }

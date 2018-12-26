@@ -11,6 +11,9 @@ class PlotsController < ApplicationController
   
   def show
   end
+  
+  def edit
+  end
     
   def create
     @plot = Plot.new(plot_params)
