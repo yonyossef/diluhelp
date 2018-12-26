@@ -1,8 +1,9 @@
+require "prawn"
+
 class PlotsController < ApplicationController
   before_action :set_plot, only: [:show, :edit, :update, :destroy]
   
   def index
-      #here we will present the calculator and suggest a 'new' calculation
   end
   
   def new
@@ -12,9 +13,13 @@ class PlotsController < ApplicationController
   def show
   end
   
-  def edit
+  def download_pdf
+    plot = Plot.find(params[:id])
+    send_data generate_pdf(plot),
+              filename: "#{plot.name}_RESULTS_#{Time.current}.pdf",
+              type: "application/pdf"
   end
-    
+
   def create
     @plot = Plot.new(plot_params)
     
@@ -49,6 +54,14 @@ class PlotsController < ApplicationController
   end
 
   private
+  
+  def generate_pdf(client)
+    Prawn::Document.new do
+      text plot.name, align: :center
+      text "fruits_per_tree: #{plot.fruits_per_tree}"
+    end.render
+  end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_plot
       @plot = Plot.find(params[:id])

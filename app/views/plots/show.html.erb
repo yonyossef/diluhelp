@@ -1,5 +1,6 @@
 <br>
-<h1 class="hdr"><%= @plot.name %>נתוני חלקה</h1>
+<h1 class="hdr">נתוני חלקה</h1>
+<h1 align="center"><%= @plot.name %></h1>
 
 <table id="plot">
   <thead>
@@ -37,8 +38,6 @@
   </tbody>
 </table>
 <br>
-<%= link_to 'חשב נתוני חלקה נוספת', new_plot_path, { :class => "button", :id => "plotshow" } %>
-<br>
 <h1 class="hdr">תוצאות מחשבון דילול חלקה <%= Yieldrec.find(@plot.yieldrec_id).plot_strength %></h1>
 
 <table id="plot_results">
@@ -72,8 +71,10 @@
     
   </tbody>
 </table>
+<br><br><br>
+<%= link_to 'שמור תוצאות', plots_download_pdf_path(@plot), { :class => "button", :id => "plotshow" } %>
+<%= link_to 'שלח תוצאות במייל', "#", { :class => "button", :id => "plotshow" } %>
 <br>
-
 
     
     
