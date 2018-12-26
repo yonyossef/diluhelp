@@ -1,0 +1,1024 @@
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/cultivars.scss */
+#cultivars {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/cultivars.scss */
+#cultivars td, #cultivars th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/cultivars.scss */
+#cultivars tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/cultivars.scss */
+#cultivars tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/cultivars.scss */
+#cultivars tr:hover {
+  background-color: #ddd;
+}
+
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/cultivars.scss */
+#cultivars th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: right;
+  background-color: #4CAF50;
+  color: white;
+}
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.main {
+  padding: 20px;
+  background-image: url(/assets/diluhelp-bg-56b29370996b74dacdcc39726cceb69f97d9c5bcd6b5898891e340e338b82f2e.jpg);
+  height: 120vh;
+}
+
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+/* line 20, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* line 29, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.topnav a:visited {
+  color: white;
+}
+
+/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Right-aligned section inside the top navigation */
+/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.topnav-right {
+  justify-content: right;
+}
+
+/* line 49, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* line 55, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.navbar a {
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+}
+
+/* line 66, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+/* line 72, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 11px 14px;
+  background-color: inherit;
+  font-family: inherit;
+  /* Important for vertical align on mobile phones */
+  margin: 0;
+  /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+/* line 85, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #f2f2f2;
+}
+
+/* Dropdown content (hidden by default) */
+/* line 91, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* Links inside the dropdown */
+/* line 101, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: right;
+}
+
+/* Add a grey background color to dropdown links on hover */
+/* line 114, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.dropdown-content a:hover {
+  background-color: grey;
+}
+
+/* Show the dropdown menu on hover */
+/* line 119, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* line 123, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.button {
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: auto;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+/* line 139, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.button:visited {
+  color: white;
+}
+
+/* line 144, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.button:hover {
+  background-color: green;
+}
+
+/* line 148, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.smallbutton {
+  border-radius: 3px;
+  padding: 6px 6px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  /* line 156, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+  .button.smallbutton {
+    font-size: 12px;
+  }
+}
+/* line 163, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.finput[type=text], input[type=number], input[type=password], input[type=email], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: auto;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 30px;
+}
+
+/* line 174, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.finput[type=checkbox] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: auto;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 30px;
+  transform: scale(2);
+}
+
+/* line 186, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.hdr {
+  text-align: center;
+  font-size: 40px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  /* line 194, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+  .hdr {
+    font-size: 20px;
+  }
+}
+/* line 199, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.flabel {
+  margin-bottom: 10px;
+  font-size: 24px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* line 213, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.finput[type=submit] {
+  margin: auto;
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  background: lightgrey;
+  color: black;
+  font-size: 24px;
+}
+
+/* line 228, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.finput[type=submit]:hover {
+  background: grey;
+  cursor: pointer;
+}
+
+/* line 233, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.backbutton {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  background: lightgrey;
+}
+
+/* line 244, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.backbutton:visited {
+  color: black;
+}
+
+/* line 247, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.backbutton:hover {
+  background: grey;
+}
+
+/* line 251, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+.bottomlink {
+  font-size: 32px;
+  color: #FFFFFF;
+}
+
+/* line 256, /home/ubuntu/workspace/app/assets/stylesheets/custom.scss.erb */
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/footer.css.scss */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+}
+
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+.container .btn {
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 32px;
+  padding: 24px 48px;
+}
+
+@media (max-width: 768px) {
+  /* line 29, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+  .container .btn {
+    font-size: 24px;
+    padding: 14px 24px;
+  }
+}
+/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+.container .btn:hover {
+  background-color: grey;
+}
+
+/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+#plot, #plot_results {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin: auto;
+}
+
+/* line 47, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+#plot td, #plot th, #plot_results td, #plot_results th {
+  border: 1px solid #ddd;
+  font-size: 26px;
+  padding: 12px;
+}
+
+/* line 53, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+#plot tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* line 54, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+#plot tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* line 55, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+#plot_results tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* line 56, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+#plot_results tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* line 58, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+#plot tr:hover {
+  background-color: #ddd;
+}
+
+/* line 59, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+#plot_results tr:hover {
+  background-color: #ddd;
+}
+
+/* line 61, /home/ubuntu/workspace/app/assets/stylesheets/plots.scss */
+#plot th, #plot_results th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: right;
+  background-color: #4CAF50;
+  color: white;
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+/* line 10, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  /* line 42, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+  th {
+    font-size: 12px;
+  }
+}
+/* line 47, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 54, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 59, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 69, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 77, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 88, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 94, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/species.scss */
+#species {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/species.scss */
+#species td, #species th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/species.scss */
+#species tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/species.scss */
+#species tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/species.scss */
+#species tr:hover {
+  background-color: #ddd;
+}
+
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/species.scss */
+#species th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: right;
+  background-color: #4CAF50;
+  color: white;
+}
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/users.scss */
+#users {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/users.scss */
+#users td, #users th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  /* line 17, /home/ubuntu/workspace/app/assets/stylesheets/users.scss */
+  #users td, #users th {
+    max-width: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/users.scss */
+#users tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* line 25, /home/ubuntu/workspace/app/assets/stylesheets/users.scss */
+#users tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/users.scss */
+#users tr:hover {
+  background-color: #ddd;
+}
+
+/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/users.scss */
+#users th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: right;
+  background-color: #4CAF50;
+  color: white;
+}
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/yieldrecs.scss */
+#yieldrecs {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/yieldrecs.scss */
+#yieldrecs td, #yieldrecs th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/yieldrecs.scss */
+#yieldrecs tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/yieldrecs.scss */
+#yieldrecs tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/yieldrecs.scss */
+#yieldrecs tr:hover {
+  background-color: #ddd;
+}
+
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/yieldrecs.scss */
+#yieldrecs th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: right;
+  background-color: #4CAF50;
+  color: white;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+/* line 48, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+/* line 57, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+h1 {
+  font-size: 2em;
+  margin: 0;
+  padding: 20px 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+/* line 72, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+/* line 83, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+/* line 95, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+a {
+  background-color: transparent;
+}
+
+/* line 99, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+p {
+  display: block;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+/* line 107, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+p#notice {
+  margin: 0;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+/* line 116, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+/* line 126, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+/* line 136, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+/* line 147, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+/* line 156, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 164, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 168, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+/* line 179, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+/* line 191, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+/* line 207, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+/* line 217, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+  font-size: 30px;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+/* line 227, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+/* line 238, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+/* line 250, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+/* line 261, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+/* line 272, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+/* line 285, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+/* line 293, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+/* line 302, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+/* line 312, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+/* line 322, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+/* line 331, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+/* line 340, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+/* line 352, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+/* line 360, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+/* line 371, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+/* line 379, /home/ubuntu/workspace/app/assets/stylesheets/application.css.scss */
+[hidden] {
+  display: none;
+}

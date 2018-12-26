@@ -15,6 +15,9 @@ class YieldrecsController < ApplicationController
   # GET /yieldrecs/new
   def new
     @yieldrec = Yieldrec.new
+    @yieldrec.young_plot = 0
+    @yieldrec.regular_plot = 0
+    @yieldrec.weak_plot = 0
   end
 
   # GET /yieldrecs/1/edit
@@ -24,16 +27,26 @@ class YieldrecsController < ApplicationController
   # POST /yieldrecs
   # POST /yieldrecs.json
   def create
-    @yieldrec = Yieldrec.new(yieldrec_params)
-
-    respond_to do |format|
+    array = [{:a => :young_plot, :name => "צעירה"}, {:a => :regular_plot, :name => "רגילה"}, {:a => :weak_plot, :name => "חלשה"}]
+    
+    array.each do |attribute|
+      @yieldrec = Yieldrec.new(yieldrec_params)
+      @yieldrec.recommended_kg = yieldrec_params[attribute[:a]]
+      @yieldrec.plot_strength = attribute[:name]
+      
+      puts @yieldrec.recommended_kg
       if @yieldrec.save
-        format.html { redirect_to yieldrecs_url, notice: 'המלצת היבול נוספה בהצלחה למסד הנתונים' }
-        format.json { render :index, status: :created, location: @yieldrec }
+        puts "Successful save"
       else
-        format.html { render :new }
-        format.json { render json: @yieldrec.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          format.html { render :new }
+          format.json { render json: @yieldrec.errors, status: :unprocessable_entity }
+        end
       end
+    end
+    respond_to do |format|
+      format.html { redirect_to yieldrecs_url, notice: 'המלצת היבול נוספה בהצלחה למסד הנתונים' }
+      format.json { render :index, status: :created, location: @yieldrec }
     end
   end
 
@@ -69,6 +82,6 @@ class YieldrecsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def yieldrec_params
-      params.require(:yieldrec).permit(:plot_strength, :recommended_kg, :cultivar_id)
+      params.require(:yieldrec).permit(:plot_strength, :young_plot, :regular_plot, :weak_plot, :cultivar_id)
     end
 end

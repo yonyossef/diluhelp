@@ -16,14 +16,24 @@
     <%= f.collection_select :cultivar_id, Cultivar.order(:name),:id,:name, {:prompt => 'בחר זן', :include_blank=> false} %>
   </div>
   
-  <div class="field">
-    <%= f.label "בחר את חוזק החלקה", :class => "flabel" %>
-    <%= f.select :plot_strength, options_for_select([['רגילה'], ['צעירה'], ['חלשה']]) %>
-  </div>
+  <!--<div class="field">-->
+  <!--  <%#= f.label "בחר את חוזק החלקה", :class => "flabel" %>-->
+  <!--  <%#= f.select :plot_strength, options_for_select([['רגילה'], ['צעירה'], ['חלשה']]) %>-->
+  <!--</div>-->
 
   <div class="field">
-    <%= f.label 'הזן יבול מומלץ לדונם (ק"ג)', :class => "flabel" %>
-    <%= f.number_field :recommended_kg, autocomplete: "off" %>
+    <%= f.label 'הזן יבול מומלץ לדונם בחלקה צעירה (ק"ג)', :class => "flabel" %>
+    <%= f.number_field :young_plot, autocomplete: "off" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label 'הזן יבול מומלץ לדונם בחלקה רגילה (ק"ג)', :class => "flabel" %>
+    <%= f.number_field :regular_plot, autocomplete: "off" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label 'הזן יבול מומלץ לדונם בחלקה חלשה (ק"ג)', :class => "flabel" %>
+    <%= f.number_field :weak_plot, autocomplete: "off" %>
   </div>
 
   <div class="actions">
