@@ -3,6 +3,10 @@
   width: 100%;
   max-width: 800px;
   margin:auto;
+  align-items: center;
+  display: flex;
+  height: 200px;
+  justify-content: center;
 }
 
 .container img {
@@ -11,19 +15,21 @@
 }
 
 .container .btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #white;
+  background-color: white;
   color: black;
-  font-size: 32px;
-  padding: 24px 48px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
+  font-size: 32px;
+  padding: 24px 48px;
+}
+
+@media (max-width: 768px) {
+  .container .btn {
+    font-size: 24px;
+    padding: 14px 24px;
+  }
 }
 
 .container .btn:hover {

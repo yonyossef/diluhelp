@@ -4,8 +4,10 @@
 // }
 
 .main {
-  padding: 30px;
+  background-image: url(appletrees.jpg);
+  height: 100vh;
 }
+
 .topnav {
   overflow: hidden;
   background-color: #333;
@@ -58,10 +60,7 @@
   text-decoration: none;
 }
 
-@media screen and (max-width: 600px) {
-  ul.topnav li.right, 
-  ul.topnav li {float: none;}
-}
+
 
 .dropdown {
   float: left;
