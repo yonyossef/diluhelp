@@ -1,8 +1,8 @@
 <div class="topnav">
   <% if logged_in? %>
-    <%= link_to "יציאה", logout_path, {:method => :delete, :class => "smallbutton"} %></a>
+    <%= link_to "יציאה", logout_path, {:method => :delete, :class => "navbutton"} %></a>
     <div class="dropdown">
-      <button class="dropbtn">עריכה
+      <button class="dropbtn navbutton">עריכה
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
@@ -18,10 +18,12 @@
     </div> 
 
   <% else %>
-    <a href=<%=login_path%>>כניסה למורשים</a>
+    <a class="navbutton" href=<%=login_path%>>כניסה למורשים</a>
   <% end %>
-  <div class="topnav-right">
-    <a class="active" href=<%=root_path%>>מחשבון</a>
-    <a href="mailto:annatziso@gmail.com?Subject=יצירת%20קשר%20DiluHelp" target="_top">צור קשר</a>
-  </div>
+  <a class="navbutton" href=<%=root_path%>>מחשבון</a>
+  <a class="navbutton" href="mailto:annatziso@gmail.com?Subject=יצירת%20קשר%20DiluHelp" target="_blank">צור קשר</a>
+</div>
+
+<div class="footer">
+  <p>(c)2018 Y-Trip Software - All rights reserved - 2345031@gmail.com</p>
 </div>
