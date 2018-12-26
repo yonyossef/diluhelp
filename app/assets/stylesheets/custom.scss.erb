@@ -42,14 +42,9 @@
 
 /* Right-aligned section inside the top navigation */
 .topnav-right {
-  //float: right;
   justify-content: right;
 }
 
-// @media screen and (max-width: 600px) {  https://www.w3schools.com/css/css_navbar.asp
-//   ul.topnav li.right, 
-//   ul.topnav li {float: none;}
-//}
 
 .navbar {
   overflow: hidden;
@@ -62,7 +57,7 @@
   font-size: 16px;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 14px;
   text-decoration: none;
 }
 
@@ -75,7 +70,7 @@
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 17px; 
+  font-size: 16px; 
   border: none;
   outline: none;
   color: white;
@@ -88,7 +83,7 @@
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: #f2f2f2;
 }
 
 
@@ -96,7 +91,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: black;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 2;
@@ -105,16 +100,19 @@
 /* Links inside the dropdown */
 .dropdown-content a {
   float: none;
-  color: black;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   text-align: right;
 }
 
+
+
+
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: grey;
 }
 
 /* Show the dropdown menu on hover */
