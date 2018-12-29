@@ -53,14 +53,25 @@ class YieldrecsController < ApplicationController
   # PATCH/PUT /yieldrecs/1
   # PATCH/PUT /yieldrecs/1.json
   def update
-    respond_to do |format|
-      if @yieldrec.update(yieldrec_params)
-        format.html { redirect_to yieldrecs_url, notice: 'המלצת היבול עודכנה בהצלחה במסד הנתונים' }
-        format.json { render :index, status: :ok, location: @yieldrec }
+    array = [{:a => :young_plot, :name => "צעירה"}, {:a => :regular_plot, :name => "רגילה"}, {:a => :weak_plot, :name => "חלשה"}]
+    
+    array.each do |attribute|
+      @yieldrec = Yieldrec.new(yieldrec_params)
+      @yieldrec.recommended_kg = yieldrec_params[attribute[:a]]
+      @yieldrec.plot_strength = attribute[:name]
+      
+      if @yieldrec.update(@yieldrec.attributes)
+        puts "Successful save"
       else
-        format.html { render :edit }
-        format.json { render json: @yieldrec.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          format.html { render :new }
+          format.json { render json: @yieldrec.errors, status: :unprocessable_entity }
+        end
       end
+    end
+    respond_to do |format|
+      format.html { redirect_to yieldrecs_url, notice: 'המלצת היבול עודכנה בהצלחה במסד הנתונים' }
+      format.json { render :index, status: :created, location: @yieldrec }
     end
   end
 
