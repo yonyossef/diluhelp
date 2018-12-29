@@ -5,35 +5,44 @@
         <%= f.text_field :name, class: 'finput' %>
     </div>
     <div class="field">
+        <hr>
         <%= f.label :species_id, "מין הפרי", :class => "flabel" %>
         <%= f.collection_select :species_id, Species.order(:name), :id, :name %>
     </div>
     <div class="field">
+        <hr>
         <%= f.label :Cultivar, "זן הפרי", :class => "flabel" %><br />
         <%= f.select :cultivar_id, grouped_options_for_select(Species.order(:name).map{ |group| [group.name, group.cultivars.map{ |c| [c.name, c.id, {'carms'=>c.has_arms}] } ] }, {:include_blank => 'name of your blank prompt'}) %>
     </div>
     <div class="field">
+        <hr>
         <%= f.label :plot_strength, "חוזק החלקה", :class => "flabel" %><br />
         <%= f.select :yieldrec_id, grouped_options_for_select(Cultivar.order(:name).map{ |group| [group.name, group.yieldrecs.map{ |c| [c.plot_strength, c.id, {'reckg'=>c.recommended_kg, 'carms'=>c.cultivar.has_arms}] } ] }, {:include_blank => 'name of your blank prompt'}) %>
     </div>
     <div>
+        <hr>
         <%= f.label :yieldrec, "יבול צפוי (ק''ג לדונם)", :class => "flabel" %><br />
         <%= f.select :yieldwish_kg, options_for_select([[-1000],[-500],[0],[500],[1000]]) %>
     </div>
     <div class="field">
+        <hr>
         <%= f.label :arms, "מס' זרועות לעץ", :class => "flabel" %>
         <%= f.number_field :arms, class: 'finput' %>
     </div>
     <div class="field">
+        <hr>
         <%= f.label :linedist_meters, "מרחק בין שורות (מטר)", :class => "flabel" %>
         <%= f.number_field :linedist_meters, class: 'finput' %>
     </div>
     <div class="field">
+        <hr>
         <%= f.label :treedist_meters, "מרחק בין עצים (מטר)", :class => "flabel" %>
         <%= f.number_field :treedist_meters, class: 'finput' %>
+        <hr>
     </div>
 
     
     <%= f.submit "חשב נתוני דילול", class: 'finput', id: 'calcsubmit' %>
+    <br><br><br>
 <% end %>
 

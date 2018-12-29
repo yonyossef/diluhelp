@@ -50,6 +50,14 @@
   padding: 12px;
 }
 
+@media (max-width: 768px) {
+    #plot td, #plot th, #plot_results td, #plot_results th {
+    border: 1px solid #ddd;
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
 #plot tr:nth-child(even){background-color: #f2f2f2;}
 #plot tr:nth-child(odd){background-color: #ffffff;}
 #plot_results tr:nth-child(even){background-color: #f2f2f2;}

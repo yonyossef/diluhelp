@@ -1,4 +1,4 @@
-.footer {
+.footer p {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -7,4 +7,11 @@
   color: white;
   text-align: center;
   padding: 5px;
+  font-size: 10px;
+}
+
+@media (max-width: 768px) {
+  .footer p {
+    font-size: 8px;
+  }
 }
