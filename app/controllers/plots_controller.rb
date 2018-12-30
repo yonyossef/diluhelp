@@ -11,24 +11,34 @@ class PlotsController < ApplicationController
   end
   
   def show
-  end
-  
-  def download_pdf
-    _plot = Plot.find(params[:id])
-    
-    # mime_type: Mime::Type.lookup("text/calendar")
-    
-    _filename = "PLOT_RESULTS_#{Time.current}.pdf"
     respond_to do |format|
-      pdf do
-        send_data generate_pdf(_plot), :filename=>_filename, :type=>"application/pdf", :disposition=>"attachment"
+      format.html
+      format.pdf do
+        
+        _filename = "PLOT_RESULTS_#{Time.current}.pdf"
+        
+        pdf = Prawn::Document.new
+        
+        pdf.font_families.update("OpenSans" => {
+          :normal => "#{Rails.root}/app/assets/fonts/free-fonts/Open/Open Sans Hebrew/TTF/OpenSansHebrewCondensed-Regular.ttf",
+        });
+        pdf.font("OpenSans")
+        pdf.text_direction = :rtl
+        pdf.font_size = 20
+        
+        pdf.formatted_text_box([{ 
+          :text => "מספר פירות לעץ: #{@plot.fruits_per_tree}", 
+        }]);
+        
+        send_data pdf.render, 
+          filename: _filename,
+          type: 'application/pdf',
+          disposition: 'inline'        
       end
     end
-    # send_data generate_pdf(_plot),
-    #           filename: _filename,
-    #           type: "application/pdf",
-    #           disposition: :attachment
   end
+  
+  
 
   def create
     @plot = Plot.new(plot_params)

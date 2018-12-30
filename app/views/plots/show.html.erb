@@ -84,7 +84,7 @@
   <h2>ביצוע האמור בעצה הינו על אחריותו הבלעדית של מקבל העצה.</h2>
 </div>
 <br>
-<%= link_to 'שמור תוצאות', download_pdf_path(@plot.id), { :class => "button", :id => "plotshow" } %>
+<%= link_to 'שמור תוצאות', plot_path(@plot.id, format: 'pdf'), { :class => "button", :id => "plotshow" } %>
 <%#= link_to 'שלח תוצאות במייל', "#", { :class => "button", :id => "plotshow" } %>
 <br>
 <br>
