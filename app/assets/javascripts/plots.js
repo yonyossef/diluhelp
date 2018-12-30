@@ -25,6 +25,9 @@ jQuery(function() {
   return $('#plot_species_id').change(function() {
     var species, escaped_species, options;
     
+    if ($('#plot_name').val() === "") {
+      $("#plot_name").val("החלקה שלי")
+    }
     $("#plot_species_id option[value='prompt']").remove();
 
     $('#plot_yieldrec_id').parent().hide();

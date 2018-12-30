@@ -14,15 +14,24 @@ class PlotsController < ApplicationController
   end
   
   def download_pdf
-    plot = Plot.find(params[:id])
-    send_data generate_pdf(plot),
-              filename: "#{plot.name}_RESULTS_#{Time.current}.pdf",
-              type: "application/pdf"
+    _plot = Plot.find(params[:id])
+    
+    # mime_type: Mime::Type.lookup("text/calendar")
+    
+    _filename = "PLOT_RESULTS_#{Time.current}.pdf"
+    respond_to do |format|
+      pdf do
+        send_data generate_pdf(_plot), :filename=>_filename, :type=>"application/pdf", :disposition=>"attachment"
+      end
+    end
+    # send_data generate_pdf(_plot),
+    #           filename: _filename,
+    #           type: "application/pdf",
+    #           disposition: :attachment
   end
 
   def create
     @plot = Plot.new(plot_params)
-    
     @plot.calc_results
     
     respond_to do |format|
@@ -57,8 +66,8 @@ class PlotsController < ApplicationController
   
   def generate_pdf(client)
     Prawn::Document.new do
-      text plot.name, align: :center
-      text "fruits_per_tree: #{plot.fruits_per_tree}"
+      text client.name, align: :center
+      text "fruits_per_tree: #{client.fruits_per_tree}"
     end.render
   end
   
