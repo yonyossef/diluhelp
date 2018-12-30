@@ -1,4 +1,6 @@
 require "prawn"
+require "bidi"
+
 
 class PlotsController < ApplicationController
   before_action :set_plot, only: [:show, :edit, :update, :destroy]
@@ -26,8 +28,10 @@ class PlotsController < ApplicationController
         pdf.text_direction = :rtl
         pdf.font_size = 20
         
+        bidi = Bidi.new
+        
         pdf.formatted_text_box([{ 
-          :text => "מספר פירות לעץ: #{@plot.fruits_per_tree}", 
+          :text => (bidi.render_visual "מספר פירות לעץ: #{@plot.fruits_per_tree}")
         }]);
         
         send_data pdf.render, 
