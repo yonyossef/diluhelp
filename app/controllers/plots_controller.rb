@@ -20,7 +20,7 @@ class PlotsController < ApplicationController
         pdf = Prawn::Document.new
         
         pdf.font_families.update("OpenSans" => {
-          :normal => "#{Rails.root}/app/assets/fonts/free-fonts/Open/Open Sans Hebrew/TTF/OpenSansHebrewCondensed-Regular.ttf",
+          :normal => "#{Rails.root}/app/assets/fonts/Open Sans Hebrew/TTF/OpenSansHebrew-Regular.ttf",
         });
         pdf.font("OpenSans")
         pdf.text_direction = :rtl
