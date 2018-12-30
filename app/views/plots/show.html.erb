@@ -69,6 +69,7 @@
         <td>מספר פירות לעץ</td>
         <td><%= @plot.fruits_per_tree %></td>
     </tr>
+    <% if @plot.fruits_per_arm.nil?; @plot.fruits_per_arm = 0; end %>
     <% if @plot.fruits_per_arm > 0 %>
     <tr>
         <td>מספר פירות לזרוע</td>
