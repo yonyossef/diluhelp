@@ -29,6 +29,7 @@ jQuery(function() {
   // }
   $('#plot_name').on('keyup paste', function() {
     $('#plot_species_id').parent().show();
+    window.scrollBy(0,100);
   }); 
   
   $('#plot_species_id').prepend($('<option>', {
@@ -72,6 +73,7 @@ jQuery(function() {
           text: 'בחר את זן הפרי'
       }));
       $('#plot_cultivar_id').parent().show();
+      window.scrollBy(0,100);
       
       return $('#plot_cultivar_id').change(function() {
         var cultivar, escaped_cultivar, yoptions, has_arms;
@@ -96,6 +98,7 @@ jQuery(function() {
               text: 'בחר את חוזק החלקה'
           }));
           $('#plot_yieldrec_id').parent().show();
+          window.scrollBy(0,100);
           
           return $('#plot_yieldrec_id').change(function() {
             var yieldrec, ideal, i=0;
@@ -109,18 +112,21 @@ jQuery(function() {
               $('#plot_linedist_meters').parent().hide(); 
             } else {
               $('#plot_linedist_meters').parent().show();
+              window.scrollBy(0,100);
               
               return $('#plot_linedist_meters').on('keyup paste', function() {
                 if(!$('#plot_linedist_meters').val()){
                   $('#plot_treedist_meters').parent().hide();
                 } else {
                   $('#plot_treedist_meters').parent().show();
+                  window.scrollBy(0,100);
                 }
                 var linedist = $('#plot_linedist_meters').val();
                 if (linedist === "" || linedist < 0) {
                   $('#plot_treedist_meters').parent().hide();    
                 } else {
                   $('#plot_treedist_meters').parent().show();
+                  window.scrollBy(0,100);
                   
                   return $('#plot_treedist_meters').on('keyup paste', function() {
                     var treedist = $('#plot_treedist_meters').val();
@@ -129,6 +135,7 @@ jQuery(function() {
                     } else {
                       if (has_arms === "true") {
                         $('#plot_arms').parent().show();
+                        window.scrollBy(0,100);
                         
                         return $('#plot_arms').on('keyup paste', function() {
                           var arms = $('#plot_arms').val();
@@ -136,11 +143,13 @@ jQuery(function() {
                             $('#calcsubmit').hide();
                           } else {
                             $('#calcsubmit').show();
+                            window.scrollBy(0,100);
                           }
                         });
                       } else {
                         $('#plot_arms').parent().hide();
                         $('#calcsubmit').show();
+                        window.scrollBy(0,100);
                       }
                     }
                   });
