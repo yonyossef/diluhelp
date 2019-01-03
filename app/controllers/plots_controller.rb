@@ -30,22 +30,7 @@ class PlotsController < ApplicationController
         
         bidi = Bidi.new
         
-        # t.string   "name"
-        # t.datetime "created_at",      null: false
-        
-        # t.integer  "species_id"
-        # t.integer  "cultivar_id"
-        
-        # t.integer  "linedist_meters"
-        # t.integer  "treedist_meters"
-        # t.integer  "arms"
-        # t.string   "strength"
-        # t.integer  "yieldwish_kg"
-        
-        # t.integer  "trees_per_dunam"
-        # t.integer  "kg_per_tree"
-        # t.integer  "fruits_per_tree"
-        # t.integer  "fruits_per_arm"
+       
         @base_yield = Yieldrec.find(@plot.yieldrec_id).recommended_kg
         
         pdf.formatted_text_box([{ 
@@ -83,7 +68,7 @@ class PlotsController < ApplicationController
         format.html { redirect_to @plot, notice: 'נתוני החלקה נוספו בהצלחה למסד הנתונים' }
         format.json { render :show, status: :created, location: @plot }
       else
-        format.html { render :new }
+        format.html { render :index }
         format.json { render json: @plot.errors, status: :unprocessable_entity }
       end
     end

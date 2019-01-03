@@ -2,7 +2,7 @@
 <%= form_for plot do |f| %>
     <div class="field">
         <%= f.label :name, "שם החלקה", :class => "flabel" %>
-        <%= f.text_field :name, class: 'finput' %>
+        <%= f.text_field :name, autofocus: true, class: 'finput' %>
     </div>
     <div class="field">
         <hr>
@@ -26,11 +26,6 @@
     </div>
     <div class="field">
         <hr>
-        <%= f.label :arms, "מס' זרועות לעץ", :class => "flabel" %>
-        <%= f.number_field :arms, class: 'finput' %>
-    </div>
-    <div class="field">
-        <hr>
         <%= f.label :linedist_meters, "מרחק בין שורות (מטר)", :class => "flabel" %>
         <%= f.number_field :linedist_meters, class: 'finput' %>
     </div>
@@ -38,9 +33,13 @@
         <hr>
         <%= f.label :treedist_meters, "מרחק בין עצים (מטר)", :class => "flabel" %>
         <%= f.number_field :treedist_meters, class: 'finput' %>
+    </div>
+    <div class="field">
+        <hr>
+        <%= f.label :arms, "מס' זרועות לעץ", :class => "flabel" %>
+        <%= f.number_field :arms, class: 'finput' %>
         <hr>
     </div>
-
     
     <%= f.submit "חשב נתוני דילול", class: 'finput', id: 'calcsubmit' %>
     <br><br><br>

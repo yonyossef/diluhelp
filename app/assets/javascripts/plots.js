@@ -2,19 +2,40 @@ jQuery(function() {
   var cultivars, yieldrecs;
   var o = new Option("option text", "value");
   
+  $('#plot_name').on('keypress', function(e) {
+    return e.which !== 13;
+  }); 
+  $('#plot_linedist_meters').on('keypress', function(e) {
+    return e.which !== 13;
+  });
+  $('#plot_treedist_meters').on('keypress', function(e) {
+    return e.which !== 13;
+  });
+  $('#plot_arms').on('keypress', function(e) {
+    return e.which !== 13;
+  }); 
+  
+  
+  // if $(getAllUrlParams().newplot === 'retry') {
+    $('#plot_species_id').parent().hide();
+    $('#plot_cultivar_id').parent().hide();
+    $('#plot_yieldrec_id').parent().hide();
+    $('#plot_yieldwish_kg').parent().hide();
+    $('#plot_arms').parent().hide();
+    $('#plot_linedist_meters').parent().hide();
+    $('#plot_treedist_meters').parent().hide();
+    $('#calcsubmit').hide();
+    
+  // }
+  $('#plot_name').on('keyup paste', function() {
+    $('#plot_species_id').parent().show();
+  }); 
+  
   $('#plot_species_id').prepend($('<option>', {
       value: 'prompt',
       selected: 'selected',
       text: 'בחר את מין הפרי'
   }));
-  
-  $('#plot_cultivar_id').parent().hide();
-  $('#plot_yieldrec_id').parent().hide();
-  $('#plot_yieldwish_kg').parent().hide();
-  $('#plot_arms').parent().hide();
-  $('#plot_linedist_meters').parent().hide();
-  $('#plot_treedist_meters').parent().hide();
-  $('#calcsubmit').hide();
   
   
   cultivars = $('#plot_cultivar_id').html();
@@ -65,11 +86,6 @@ jQuery(function() {
         // <optgroup label="בונבוני"><option reckg="2333" carms="false" value="3">רגילה</option></optgroup>  
         
         has_arms = $('#plot_cultivar_id :selected').attr('carms');
-        if (has_arms === "true") {
-          $('#plot_arms').parent().show();
-        } else {
-          $('#plot_arms').parent().hide();
-        }
         
         if (yoptions) {
           var o = new Option("option text", "value");
@@ -80,9 +96,7 @@ jQuery(function() {
               text: 'בחר את חוזק החלקה'
           }));
           $('#plot_yieldrec_id').parent().show();
-          $('#plot_linedist_meters').parent().show();
-          $('#plot_treedist_meters').parent().show();
-        
+          
           return $('#plot_yieldrec_id').change(function() {
             var yieldrec, ideal, i=0;
             
@@ -92,10 +106,50 @@ jQuery(function() {
             ideal = $('#plot_yieldrec_id :selected').attr('reckg');
             
             if (yieldrec === "") {
-               $('#calcsubmit').hide();
-             } else {
-               $('#calcsubmit').show();
-             }
+              $('#plot_linedist_meters').parent().hide(); 
+            } else {
+              $('#plot_linedist_meters').parent().show();
+              
+              return $('#plot_linedist_meters').on('keyup paste', function() {
+                if(!$('#plot_linedist_meters').val()){
+                  $('#plot_treedist_meters').parent().hide();
+                } else {
+                  $('#plot_treedist_meters').parent().show();
+                }
+                var linedist = $('#plot_linedist_meters').val();
+                if (linedist === "" || linedist < 0) {
+                  $('#plot_treedist_meters').parent().hide();    
+                } else {
+                  $('#plot_treedist_meters').parent().show();
+                  
+                  return $('#plot_treedist_meters').on('keyup paste', function() {
+                    var treedist = $('#plot_treedist_meters').val();
+                    if (treedist === "" || treedist < 0) {
+                      $('#calcsubmit').hide();
+                    } else {
+                      if (has_arms === "true") {
+                        $('#plot_arms').parent().show();
+                        
+                        return $('#plot_arms').on('keyup paste', function() {
+                          var arms = $('#plot_arms').val();
+                          if (arms === "" || arms < 0) {
+                            $('#calcsubmit').hide();
+                          } else {
+                            $('#calcsubmit').show();
+                          }
+                        });
+                      } else {
+                        $('#plot_arms').parent().hide();
+                        $('#calcsubmit').show();
+                      }
+                    }
+                  });
+                  
+                }
+              });
+              
+              
+            }
             
             console.log(yieldrec);
             console.log("RECKG="+ideal);
