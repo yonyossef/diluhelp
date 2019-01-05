@@ -145,8 +145,14 @@ jQuery(function() {
                 });
               });
               
+              $('#plot_yieldwish_kg').prepend($('<option>', {
+                  value: 'prompt',
+                  selected: 'selected',
+                  text: 'בחר יבול צפוי (ק"ג)'
+              }));
+              //$("#plot_yieldwish_kg option[value='0']").prop('selected', true);
+              
               ideal = 0;
-              $("#plot_yieldwish_kg option[value='0']").prop('selected', true);
               
               $('#plot_yieldwish_kg').parent().show();
               if (scrolls_count < 3) {
@@ -155,6 +161,8 @@ jQuery(function() {
               }
           
               return $('#plot_yieldwish_kg').change(function() {
+                
+                $("#plot_yieldwish_kg option[value='prompt']").remove();
                 
                 $('#plot_linedist_meters').parent().show();
                 if (scrolls_count < 4) {
