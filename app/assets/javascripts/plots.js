@@ -32,8 +32,8 @@ jQuery(function() {
   
   $('#plot_name').on('keyup paste', function() {
     console.log("scrolls_count: " + scrolls_count);
+    $('#plot_species_id').parent().show();
     if (scrolls_count < 1) {
-      $('#plot_species_id').parent().show();
       scrolls_count = 0;
     }
   }); 
@@ -81,8 +81,9 @@ jQuery(function() {
           text: 'בחר את זן הפרי'
       }));
       
+      $('#plot_cultivar_id').parent().show();
+      
       if (scrolls_count < 1) {
-        $('#plot_cultivar_id').parent().show();
         window.scrollBy(0,100);
         scrolls_count = 1;
       }
@@ -112,8 +113,8 @@ jQuery(function() {
               text: 'בחר את חוזק החלקה'
           }));
           
+          $('#plot_yieldrec_id').parent().show();
           if (scrolls_count < 2) {
-            $('#plot_yieldrec_id').parent().show();
             window.scrollBy(0,100);
             scrolls_count = 2;
           }
@@ -132,8 +133,8 @@ jQuery(function() {
               $('#plot_linedist_meters').parent().hide(); 
               scrolls_count = 2;
             } else {
+              $('#plot_linedist_meters').parent().show();
               if (scrolls_count < 3) {
-                $('#plot_linedist_meters').parent().show();
                 window.scrollBy(0,100);
                 scrolls_count = 3;
               }
@@ -146,8 +147,8 @@ jQuery(function() {
                   $('#plot_treedist_meters').parent().hide();
                   scrolls_count = 3;
                 } else {
+                  $('#plot_treedist_meters').parent().show();
                   if (scrolls_count < 4) {
-                    $('#plot_treedist_meters').parent().show();
                     window.scrollBy(0,100);
                     scrolls_count = 4;
                   }
@@ -163,8 +164,8 @@ jQuery(function() {
                     scrolls_count = 4;
                   } else {
                     if (has_arms === "true") {
+                      $('#plot_arms').parent().show();
                       if (scrolls_count < 5) {
-                        $('#plot_arms').parent().show();
                         window.scrollBy(0,100);
                         scrolls_count = 5;
                       }
@@ -177,8 +178,8 @@ jQuery(function() {
                           $('#calcsubmit').hide();
                           scrolls_count = 4;
                         } else {
+                          $('#calcsubmit').show();
                           if (scrolls_count < 6) {
-                            $('#calcsubmit').show();
                             window.scrollBy(0,100);
                             scrolls_count = 6;
                           }
