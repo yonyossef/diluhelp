@@ -104,7 +104,7 @@ jQuery(function() {
         
         has_arms = $('#plot_cultivar_id :selected').attr('carms');
         
-        if (yoptions) {
+        if (yoptions) { // if (there are yield recommendations for this cultivar)
           var o = new Option("option text", "value");
           $('#plot_yieldrec_id').html(yoptions);
           $('#plot_yieldrec_id').prepend($('<option>', {
@@ -133,86 +133,95 @@ jQuery(function() {
               $('#plot_linedist_meters').parent().hide(); 
               scrolls_count = 2;
             } else {
-              $('#plot_linedist_meters').parent().show();
+              console.log(yieldrec);
+              console.log("RECKG="+ideal);
+              
+              $('#plot_yieldwish_kg option').each(function() {
+                $(this).html(function(n,old) {
+                  console.log("OLD="+old);
+                  console.log("i="+i);
+                  console.log("IDEAL="+ideal);
+                  return parseInt(ideal,10) + (i++)*500-1000;
+                });
+              });
+              
+              ideal = 0;
+              $("#plot_yieldwish_kg option[value='0']").prop('selected', true);
+              
+              $('#plot_yieldwish_kg').parent().show();
               if (scrolls_count < 3) {
                 window.scrollBy(0,100);
                 scrolls_count = 3;
               }
-              
-              return $('#plot_linedist_meters').on('keyup paste', function() {
+          
+              return $('#plot_yieldwish_kg').change(function() {
                 
-                console.log("scrolls_count: " + scrolls_count);
-                
-                if(!$('#plot_linedist_meters').val()){
-                  $('#plot_treedist_meters').parent().hide();
-                  scrolls_count = 3;
-                } else {
-                  $('#plot_treedist_meters').parent().show();
-                  if (scrolls_count < 4) {
-                    window.scrollBy(0,100);
-                    scrolls_count = 4;
-                  }
-                  
+                $('#plot_linedist_meters').parent().show();
+                if (scrolls_count < 4) {
+                  window.scrollBy(0,100);
+                  scrolls_count = 4;
                 }
-                return $('#plot_treedist_meters').on('keyup paste', function() {
-                  var treedist = $('#plot_treedist_meters').val();
+                
+                return $('#plot_linedist_meters').on('keyup paste', function() {
                   
                   console.log("scrolls_count: " + scrolls_count);
                   
-                  if (treedist === "" || treedist < 0) {
-                    $('#calcsubmit').hide();
-                    scrolls_count = 4;
+                  if(!$('#plot_linedist_meters').val()){
+                    $('#plot_treedist_meters').parent().hide();
+                    scrolls_count = 3;
                   } else {
-                    if (has_arms === "true") {
-                      $('#plot_arms').parent().show();
-                      if (scrolls_count < 5) {
-                        window.scrollBy(0,100);
-                        scrolls_count = 5;
-                      }
-                      return $('#plot_arms').on('keyup paste', function() {
-                        var arms = $('#plot_arms').val();
-                        
-                        console.log("scrolls_count: " + scrolls_count);
-                        
-                        if (arms === "" || arms < 0) {
-                          $('#calcsubmit').hide();
-                          scrolls_count = 4;
-                        } else {
-                          $('#calcsubmit').show();
-                          if (scrolls_count < 6) {
-                            window.scrollBy(0,100);
-                            scrolls_count = 6;
-                          }
-                        }
-                      });
-                    } else {
-                      $('#plot_arms').parent().hide();
-                      $('#calcsubmit').show();
+                    $('#plot_treedist_meters').parent().show();
+                    if (scrolls_count < 5) {
                       window.scrollBy(0,100);
+                      scrolls_count = 5;
                     }
+                    
                   }
+                  return $('#plot_treedist_meters').on('keyup paste', function() {
+                    var treedist = $('#plot_treedist_meters').val();
+                    
+                    console.log("scrolls_count: " + scrolls_count);
+                    
+                    if (treedist === "" || treedist < 0) {
+                      $('#calcsubmit').hide();
+                      scrolls_count = 4;
+                    } else {
+                      if (has_arms === "true") {
+                        $('#plot_arms').parent().show();
+                        if (scrolls_count < 6) {
+                          window.scrollBy(0,100);
+                          scrolls_count = 6;
+                        }
+                        return $('#plot_arms').on('keyup paste', function() {
+                          var arms = $('#plot_arms').val();
+                          
+                          console.log("scrolls_count: " + scrolls_count);
+                          
+                          if (arms === "" || arms < 0) {
+                            $('#calcsubmit').hide();
+                            scrolls_count = 4;
+                          } else {
+                            $('#calcsubmit').show();
+                            if (scrolls_count < 7) {
+                              window.scrollBy(0,100);
+                              scrolls_count = 7;
+                            }
+                          }
+                        });
+                      } else {
+                        $('#plot_arms').parent().hide();
+                        $('#calcsubmit').show();
+                        window.scrollBy(0,100);
+                      }
+                    }
+                  });
                 });
               });
               
               
             }
             
-            console.log(yieldrec);
-            console.log("RECKG="+ideal);
             
-            $('#plot_yieldwish_kg option').each(function() {
-              $(this).html(function(n,old) {
-                console.log("OLD="+old);
-                console.log("i="+i);
-                console.log("IDEAL="+ideal);
-                return parseInt(ideal,10) + (i++)*500-1000;
-              });
-            });
-            
-            ideal = 0;
-            $("#plot_yieldwish_kg option[value='0']").prop('selected', true);
-            
-            return $('#plot_yieldwish_kg').parent().show();
           });
         } else {
           console.log("scrolls_count before 1: " + scrolls_count);
