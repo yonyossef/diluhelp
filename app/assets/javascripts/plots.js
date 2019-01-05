@@ -27,9 +27,15 @@ jQuery(function() {
     $('#calcsubmit').hide();
     
   // }
+  var scrolls_count = 0;
+  console.log("scrolls_count initial: " + scrolls_count);
+  
   $('#plot_name').on('keyup paste', function() {
-    $('#plot_species_id').parent().show();
-    window.scrollBy(0,100);
+    console.log("scrolls_count: " + scrolls_count);
+    if (scrolls_count < 1) {
+      $('#plot_species_id').parent().show();
+      scrolls_count = 0;
+    }
   }); 
   
   $('#plot_species_id').prepend($('<option>', {
@@ -46,6 +52,8 @@ jQuery(function() {
   
   return $('#plot_species_id').change(function() {
     var species, escaped_species, options;
+    
+    console.log("scrolls_count: " + scrolls_count);
     
     if ($('#plot_name').val() === "") {
       $("#plot_name").val("החלקה שלי")
@@ -72,11 +80,17 @@ jQuery(function() {
           selected: 'selected',
           text: 'בחר את זן הפרי'
       }));
-      $('#plot_cultivar_id').parent().show();
-      window.scrollBy(0,100);
+      
+      if (scrolls_count < 1) {
+        $('#plot_cultivar_id').parent().show();
+        window.scrollBy(0,100);
+        scrolls_count = 1;
+      }
       
       return $('#plot_cultivar_id').change(function() {
         var cultivar, escaped_cultivar, yoptions, has_arms;
+        
+        console.log("scrolls_count: " + scrolls_count);
         
         $("#plot_cultivar_id option[value='prompt']").remove();
 
@@ -97,11 +111,17 @@ jQuery(function() {
               selected: 'selected',
               text: 'בחר את חוזק החלקה'
           }));
-          $('#plot_yieldrec_id').parent().show();
-          window.scrollBy(0,100);
+          
+          if (scrolls_count < 2) {
+            $('#plot_yieldrec_id').parent().show();
+            window.scrollBy(0,100);
+            scrolls_count = 2;
+          }
           
           return $('#plot_yieldrec_id').change(function() {
             var yieldrec, ideal, i=0;
+            
+            console.log("scrolls_count: " + scrolls_count);
             
             $("#plot_yieldrec_id option[value='prompt']").remove();
 
@@ -110,51 +130,67 @@ jQuery(function() {
             
             if (yieldrec === "") {
               $('#plot_linedist_meters').parent().hide(); 
+              scrolls_count = 2;
             } else {
-              $('#plot_linedist_meters').parent().show();
-              window.scrollBy(0,100);
+              if (scrolls_count < 3) {
+                $('#plot_linedist_meters').parent().show();
+                window.scrollBy(0,100);
+                scrolls_count = 3;
+              }
               
               return $('#plot_linedist_meters').on('keyup paste', function() {
+                
+                console.log("scrolls_count: " + scrolls_count);
+                
                 if(!$('#plot_linedist_meters').val()){
                   $('#plot_treedist_meters').parent().hide();
+                  scrolls_count = 3;
                 } else {
-                  $('#plot_treedist_meters').parent().show();
-                  window.scrollBy(0,100);
-                }
-                var linedist = $('#plot_linedist_meters').val();
-                if (linedist === "" || linedist < 0) {
-                  $('#plot_treedist_meters').parent().hide();    
-                } else {
-                  $('#plot_treedist_meters').parent().show();
-                  window.scrollBy(0,100);
+                  if (scrolls_count < 4) {
+                    $('#plot_treedist_meters').parent().show();
+                    window.scrollBy(0,100);
+                    scrolls_count = 4;
+                  }
                   
-                  return $('#plot_treedist_meters').on('keyup paste', function() {
-                    var treedist = $('#plot_treedist_meters').val();
-                    if (treedist === "" || treedist < 0) {
-                      $('#calcsubmit').hide();
-                    } else {
-                      if (has_arms === "true") {
+                }
+                return $('#plot_treedist_meters').on('keyup paste', function() {
+                  var treedist = $('#plot_treedist_meters').val();
+                  
+                  console.log("scrolls_count: " + scrolls_count);
+                  
+                  if (treedist === "" || treedist < 0) {
+                    $('#calcsubmit').hide();
+                    scrolls_count = 4;
+                  } else {
+                    if (has_arms === "true") {
+                      if (scrolls_count < 5) {
                         $('#plot_arms').parent().show();
                         window.scrollBy(0,100);
+                        scrolls_count = 5;
+                      }
+                      return $('#plot_arms').on('keyup paste', function() {
+                        var arms = $('#plot_arms').val();
                         
-                        return $('#plot_arms').on('keyup paste', function() {
-                          var arms = $('#plot_arms').val();
-                          if (arms === "" || arms < 0) {
-                            $('#calcsubmit').hide();
-                          } else {
+                        console.log("scrolls_count: " + scrolls_count);
+                        
+                        if (arms === "" || arms < 0) {
+                          $('#calcsubmit').hide();
+                          scrolls_count = 4;
+                        } else {
+                          if (scrolls_count < 6) {
                             $('#calcsubmit').show();
                             window.scrollBy(0,100);
+                            scrolls_count = 6;
                           }
-                        });
-                      } else {
-                        $('#plot_arms').parent().hide();
-                        $('#calcsubmit').show();
-                        window.scrollBy(0,100);
-                      }
+                        }
+                      });
+                    } else {
+                      $('#plot_arms').parent().hide();
+                      $('#calcsubmit').show();
+                      window.scrollBy(0,100);
                     }
-                  });
-                  
-                }
+                  }
+                });
               });
               
               
@@ -178,6 +214,8 @@ jQuery(function() {
             return $('#plot_yieldwish_kg').parent().show();
           });
         } else {
+          console.log("scrolls_count before 1: " + scrolls_count);
+          scrolls_count = 1;
           $('#plot_yieldrec_id').empty();
           $('#calcsubmit').hide();
           $('#plot_yieldwish_kg').parent().hide();
@@ -188,6 +226,8 @@ jQuery(function() {
         }
       });
     } else {
+      console.log("scrolls_count before 0: " + scrolls_count);
+      scrolls_count = 0;
       $('#plot_cultivar_id').empty();
       return $('#plot_cultivar_id').parent().hide();
     }
