@@ -4,8 +4,11 @@ class Plot < ApplicationRecord
     belongs_to :yieldrecs
     
     validates :name, presence: true;
-    validates :linedist_meters, presence: true, numericality: { greater_than: 0, less_than: 20 };
-    validates :treedist_meters, presence: true, numericality: { greater_than: 0, less_than: 20 };
+    # validates :linedist_meters, presence: true, numericality: { greater_than: 0, less_than: 20 };
+    # validates :treedist_meters, presence: true, numericality: { greater_than: 0, less_than: 20 };
+    
+    validates_numericality_of :linedist_meters, on: :create
+    validates_numericality_of :treedist_meters, on: :create
     
     def calc_results()
         if self.linedist_meters.nil? or self.treedist_meters.nil? 

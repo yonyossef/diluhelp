@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181223115150) do
+ActiveRecord::Schema.define(version: 20190110221631) do
 
   create_table "cultivars", force: :cascade do |t|
     t.string   "name"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20181223115150) do
   end
 
   create_table "plots", force: :cascade do |t|
-    t.integer  "linedist_meters"
-    t.integer  "treedist_meters"
+    t.float    "linedist_meters"
+    t.float    "treedist_meters"
     t.integer  "arms"
     t.integer  "yieldwish_kg"
     t.datetime "created_at",      null: false
