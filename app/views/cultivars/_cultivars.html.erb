@@ -1,8 +1,8 @@
 <table id="cultivars">
   <thead>
     <tr>
-      <th>שם זן</th>
       <th>מין הפרי</th>      
+      <th>שם זן</th>
       <th>משקל פרי (גרם)</th>
       <th>האם לעץ יש זרועות?</th>
       <th>פעולות</th>
@@ -10,20 +10,30 @@
   </thead>
 
   <tbody>
-    <% cultivar_list.each do |cultivar| %>
+    <% species_list.each do |species| %>
       <tr>
-        <td><%= cultivar.name %></td>
-        <td><%= cultivar.species.name %></td>
-        <td><%= cultivar.fruit_weight_gr %></td>
-        <td><%= check_box "cultivar", "has_arms", {:checked => cultivar.has_arms, :disabled => true}%></td>
-        <td>
-        <%= link_to 'יבול', cultivar_path(cultivar), { :class => "button smallbutton" } %>
-        <%= link_to 'ערוך', edit_cultivar_path(cultivar), { :class => "button smallbutton" } %>
-        <% if logged_in? && current_user.admin? %>
-        <%= link_to 'מחק', cultivar, { :method => :delete, :class => "button smallbutton", :data => { :confirm => 'מחיקת זן תביא למחיקת כל המלצות היבול הקשורות אליו. האם אתה בטוח?' }} %>
+        <td id="species_row"><%= species.name %></td>        
+        <td id="species_row"></td>
+        <td id="species_row"></td>
+        <td id="species_row"></td>
+        <td id="species_row"></td>
+        
+        <% Cultivar.where(species_id: species.id).order('name ASC').each do |cultivar| %>
+          <tr>
+            <td></td>
+            <td><%= cultivar.name %></td>
+            <td><%= cultivar.fruit_weight_gr %></td>
+            <td><%= check_box "cultivar", "has_arms", {:checked => cultivar.has_arms, :disabled => true}%></td>
+            <td>
+            <%= link_to 'יבול', cultivar_path(cultivar), { :class => "button smallbutton" } %>
+            <%= link_to 'ערוך', edit_cultivar_path(cultivar), { :class => "button smallbutton" } %>
+            <% if logged_in? && current_user.admin? %>
+            <%= link_to 'מחק', cultivar, { :method => :delete, :class => "button smallbutton", :data => { :confirm => 'מחיקת זן תביא למחיקת כל המלצות היבול הקשורות אליו. האם אתה בטוח?' }} %>
+            <% end %>
+            </td>
+          </tr>
         <% end %>
-        </td>
       </tr>
-    <% end %>
+    <% end %>  
   </tbody>
 </table>

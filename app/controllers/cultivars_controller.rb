@@ -5,7 +5,8 @@ class CultivarsController < ApplicationController
   # GET /cultivars
   # GET /cultivars.json
   def index
-    @cultivars = Cultivar.all
+    #@cultivars = Cultivar.all
+    @species = Species.all
   end
 
   # GET /cultivars/1

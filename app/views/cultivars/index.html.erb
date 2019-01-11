@@ -5,7 +5,8 @@
 <%= link_to 'הוסף זן', new_cultivar_path,{ :class=>"button" } %>
 <br><br><br>
 
-<%= render 'cultivars', cultivar_list: @cultivars.order('cultivars.name ASC') %>
+<%#= render 'cultivars', cultivar_list: @cultivars.order('cultivars.name ASC') %>
+<%= render 'cultivars', species_list: @species.order('species.name ASC') %>
 
 <br>
 
