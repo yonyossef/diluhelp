@@ -1,6 +1,7 @@
 jQuery(function() {
   var cultivars, yieldrecs;
   var o = new Option("option text", "value");
+  SCROLL_JUMP = 200;
   
   $('#plot_name').on('keypress', function(e) {
     return e.which !== 13;
@@ -84,7 +85,7 @@ jQuery(function() {
       $('#plot_cultivar_id').parent().show();
       
       if (scrolls_count < 1) {
-        window.scrollBy(0,100);
+        window.scrollBy(0,SCROLL_JUMP);
         scrolls_count = 1;
       }
       
@@ -115,7 +116,7 @@ jQuery(function() {
           
           $('#plot_yieldrec_id').parent().show();
           if (scrolls_count < 2) {
-            window.scrollBy(0,100);
+            window.scrollBy(0,SCROLL_JUMP);
             scrolls_count = 2;
           }
           
@@ -156,7 +157,7 @@ jQuery(function() {
               
               $('#plot_yieldwish_kg').parent().show();
               if (scrolls_count < 3) {
-                window.scrollBy(0,100);
+                window.scrollBy(0,SCROLL_JUMP);
                 scrolls_count = 3;
               }
           
@@ -166,7 +167,7 @@ jQuery(function() {
                 
                 $('#plot_linedist_meters').parent().show();
                 if (scrolls_count < 4) {
-                  window.scrollBy(0,100);
+                  window.scrollBy(0,SCROLL_JUMP);
                   scrolls_count = 4;
                 }
                 
@@ -180,7 +181,7 @@ jQuery(function() {
                   } else {
                     $('#plot_treedist_meters').parent().show();
                     if (scrolls_count < 5) {
-                      window.scrollBy(0,100);
+                      window.scrollBy(0,SCROLL_JUMP);
                       scrolls_count = 5;
                     }
                     
@@ -197,7 +198,7 @@ jQuery(function() {
                       if (has_arms === "true") {
                         $('#plot_arms').parent().show();
                         if (scrolls_count < 6) {
-                          window.scrollBy(0,100);
+                          window.scrollBy(0,SCROLL_JUMP);
                           scrolls_count = 6;
                         }
                         return $('#plot_arms').on('keyup paste', function() {
@@ -211,7 +212,7 @@ jQuery(function() {
                           } else {
                             $('#calcsubmit').show();
                             if (scrolls_count < 7) {
-                              window.scrollBy(0,100);
+                              window.scrollBy(0,SCROLL_JUMP);
                               scrolls_count = 7;
                             }
                           }
@@ -219,7 +220,7 @@ jQuery(function() {
                       } else {
                         $('#plot_arms').parent().hide();
                         $('#calcsubmit').show();
-                        window.scrollBy(0,100);
+                        window.scrollBy(0,SCROLL_JUMP);
                       }
                     }
                   });
@@ -232,8 +233,6 @@ jQuery(function() {
             
           });
         } else {
-          console.log("scrolls_count before 1: " + scrolls_count);
-          scrolls_count = 1;
           $('#plot_yieldrec_id').empty();
           $('#calcsubmit').hide();
           $('#plot_yieldwish_kg').parent().hide();
