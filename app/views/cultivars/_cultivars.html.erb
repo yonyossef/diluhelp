@@ -12,19 +12,19 @@
   <tbody>
     <% species_list.each do |species| %>
       <tr>
-        <td id="species_row"><%= species.name %></td>        
-        <td id="species_row"></td>
-        <td id="species_row"></td>
-        <td id="species_row"></td>
-        <td id="species_row"></td>
+        <td class="species_row"><%= species.name %></td>        
+        <td class="species_row"></td>
+        <td class="species_row"></td>
+        <td class="species_row"></td>
+        <td class="species_row"></td>
         
         <% Cultivar.where(species_id: species.id).order('name ASC').each do |cultivar| %>
           <tr>
-            <td></td>
-            <td><%= cultivar.name %></td>
-            <td><%= cultivar.fruit_weight_gr %></td>
-            <td><%= check_box "cultivar", "has_arms", {:checked => cultivar.has_arms, :disabled => true}%></td>
-            <td>
+            <td class="cultivar_row"></td>
+            <td class="cultivar_row"><%= cultivar.name %></td>
+            <td class="cultivar_row"><%= cultivar.fruit_weight_gr %></td>
+            <td class="cultivar_row"><%= check_box "cultivar", "has_arms", {:checked => cultivar.has_arms, :disabled => true}%></td>
+            <td class="cultivar_row">
             <%= link_to 'יבול', cultivar_path(cultivar), { :class => "button smallbutton" } %>
             <%= link_to 'ערוך', edit_cultivar_path(cultivar), { :class => "button smallbutton" } %>
             <% if logged_in? && current_user.admin? %>
