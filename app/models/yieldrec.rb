@@ -4,6 +4,7 @@ class Yieldrec < ApplicationRecord
     validates :regular_plot, presence: true, numericality: { only_integer: true };
     validates :weak_plot, presence: true, numericality: { only_integer: true };
     belongs_to :cultivar
+    has_many :plots, dependent: :destroy
     
     attr_accessor :young_plot
     attr_accessor :regular_plot

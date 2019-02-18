@@ -4,5 +4,5 @@ class Cultivar < ApplicationRecord
   validates :fruit_weight_gr, presence: true, numericality: { only_integer: true };
   belongs_to :species
   has_many :yieldrecs, dependent: :destroy
-  has_many :plots
+  has_many :plots, dependent: :destroy
 end
