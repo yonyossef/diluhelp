@@ -142,7 +142,7 @@ jQuery(function() {
                   console.log("OLD="+old);
                   console.log("i="+i);
                   console.log("IDEAL="+ideal);
-                  return parseInt(ideal,10) + (i++)*500-1000;
+                  return parseInt(ideal,10) + (i++)*250-1000;
                 });
               });
               

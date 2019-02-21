@@ -22,7 +22,8 @@
     <div>
         <hr>
         <%= f.label :yieldrec, "יבול צפוי (ק''ג לדונם)", :class => "flabel" %><br />
-        <%= f.select :yieldwish_kg, options_for_select([[-1000],[-500],[0],[500],[1000]]) %>
+        <% yieldwish_options = [[-2000],[-1750],[-1500],[-1250],[-1000],[-750],[-500],[-250],[0],[250],[500],[750],[1000],[1250],[1500],[1750],[2000]] %>
+        <%= f.select :yieldwish_kg, options_for_select(yieldwish_options) %>
     </div>
     <div class="field">
         <hr>
