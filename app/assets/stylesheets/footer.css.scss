@@ -1,5 +1,6 @@
-.footer p {
-  position: fixed;
+.footer {
+  // height: 3em;
+  position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -7,6 +8,9 @@
   color: white;
   text-align: center;
   padding: 5px;
+}
+
+.footer p {
   font-size: 10px;
 }
 
