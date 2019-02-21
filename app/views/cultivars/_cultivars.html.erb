@@ -21,7 +21,7 @@
         <% Cultivar.where(species_id: species.id).order('name ASC').each do |cultivar| %>
           <tr>
             <td class="cultivar_row"></td>
-            <td class="cultivar_row"><%= cultivar.name %></td>
+            <td class="cultivar_row" id="cultivar_name"><%= cultivar.name %></td>
             <td class="cultivar_row"><%= cultivar.fruit_weight_gr %></td>
             <td class="cultivar_row"><%= check_box "cultivar", "has_arms", {:checked => cultivar.has_arms, :disabled => true}%></td>
             <td class="cultivar_row">

@@ -13,12 +13,19 @@
   padding: 8px;
 }
 
-td#species_row {
-  background-color: #f2f2f2;
-}
-
 td {
   background-color: #ffffff;
+}
+
+td#cultivar_name.cultivar_row {
+  // max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.species_row {
+  background-color: #f2f2f2;
 }
 
 // #cultivars tr:nth-child(even){background-color: #f2f2f2;}
@@ -32,4 +39,10 @@ td {
   text-align: right;
   background-color: #4CAF50;
   color: white;
+}
+
+@media (max-width: 768px) {
+  td#cultivar_name.cultivar_row {
+    max-width: 50px;
+  }
 }
