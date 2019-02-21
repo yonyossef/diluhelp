@@ -26,6 +26,9 @@ td#cultivar_name.cultivar_row {
 
 td.species_row {
   background-color: #f2f2f2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 // #cultivars tr:nth-child(even){background-color: #f2f2f2;}
@@ -43,6 +46,9 @@ td.species_row {
 
 @media (max-width: 768px) {
   td#cultivar_name.cultivar_row {
+    max-width: 50px;
+  }
+  td.species_row {
     max-width: 50px;
   }
 }
