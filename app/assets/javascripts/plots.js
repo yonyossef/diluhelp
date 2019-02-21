@@ -1,7 +1,7 @@
 jQuery(function() {
   var cultivars, yieldrecs;
   var o = new Option("option text", "value");
-  SCROLL_JUMP = 200;
+  SCROLL_JUMP = 150;
   
   $('#plot_name').on('keypress', function(e) {
     return e.which !== 13;
