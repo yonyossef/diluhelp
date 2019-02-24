@@ -142,16 +142,27 @@ jQuery(function() {
                   console.log("OLD="+old);
                   console.log("i="+i);
                   console.log("IDEAL="+ideal);
+                  if (i === 8) {
+                    $(this).addClass('ideal0')
+                  } else if ((i > 8 && i <= 10) || (i < 8 && i >= 6)) {
+                    $(this).addClass('ideal1')
+                  } else if ((i > 10 && i <= 12) || (i < 6 && i >= 4)) {
+                    $(this).addClass('ideal2')
+                  } else if ((i > 12 && i <= 14) || (i < 4 && i >= 2)) {
+                    $(this).addClass('ideal3')
+                  } else if (i > 14 || i < 2) {
+                    $(this).addClass('ideal4')
+                  }
                   return parseInt(ideal,10) + (i++)*250-2000;
                 });
               });
               
-              $('#plot_yieldwish_kg').prepend($('<option>', {
-                  value: 'prompt',
-                  selected: 'selected',
-                  text: 'בחר יבול צפוי (ק"ג)'
-              }));
-              //$("#plot_yieldwish_kg option[value='0']").prop('selected', true);
+              // $('#plot_yieldwish_kg').prepend($('<option>', {
+                  // value: 'prompt',
+                  // selected: 'selected',
+                  // text: 'בחר יבול צפוי (ק"ג)'
+              // }));
+              $("#plot_yieldwish_kg option[value='0']").prop('selected', true);
               
               ideal = 0;
               
