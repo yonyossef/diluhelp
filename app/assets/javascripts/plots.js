@@ -144,6 +144,7 @@ jQuery(function() {
                   console.log("IDEAL="+ideal);
                   if (i === 8) {
                     $(this).addClass('ideal0')
+                    console.log("RETURNING= "+ String(parseInt(ideal,10) + (i)*250-2000) + " מומלץ");
                     return String(parseInt(ideal,10) + (i++)*250-2000) + " מומלץ"
                   } else if ((i > 8 && i <= 10) || (i < 8 && i >= 6)) {
                     $(this).addClass('ideal1')
@@ -154,7 +155,7 @@ jQuery(function() {
                   } else if (i > 14 || i < 2) {
                     $(this).addClass('ideal4')
                   }
-                  console.log("RETURNING= "+ ideal + (i++)*250-2000);
+                  console.log("RETURNING= "+ String(parseInt(ideal,10) + (i)*250-2000));
                   return String(parseInt(ideal,10) + (i++)*250-2000)
                 });
               });
@@ -177,7 +178,8 @@ jQuery(function() {
               return $('#plot_yieldwish_kg').change(function() {
                 
                 $("#plot_yieldwish_kg option[value='prompt']").remove();
-                
+                console.log("SELECTED YEILDWISH: " + $('#plot_yieldwish_kg :selected').val());
+                  
                 $('#plot_linedist_meters').parent().show();
                 if (scrolls_count < 4) {
                   window.scrollBy(0,SCROLL_JUMP);
