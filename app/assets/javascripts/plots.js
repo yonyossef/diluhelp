@@ -144,6 +144,7 @@ jQuery(function() {
                   console.log("IDEAL="+ideal);
                   if (i === 8) {
                     $(this).addClass('ideal0')
+                    return String((ideal,10) + (i++)*250-2000) + " מומלץ"
                   } else if ((i > 8 && i <= 10) || (i < 8 && i >= 6)) {
                     $(this).addClass('ideal1')
                   } else if ((i > 10 && i <= 12) || (i < 6 && i >= 4)) {
@@ -153,16 +154,16 @@ jQuery(function() {
                   } else if (i > 14 || i < 2) {
                     $(this).addClass('ideal4')
                   }
-                  return parseInt(ideal,10) + (i++)*250-2000;
+                  return String((ideal,10) + (i++)*250-2000)
                 });
               });
               
-              // $('#plot_yieldwish_kg').prepend($('<option>', {
-                  // value: 'prompt',
+              $('#plot_yieldwish_kg').prepend($('<option>', {
+                  value: 'prompt',
                   // selected: 'selected',
-                  // text: 'בחר יבול צפוי (ק"ג)'
-              // }));
-              $("#plot_yieldwish_kg option[value='0']").prop('selected', true);
+                  text: 'בחר יבול צפוי (ק"ג)'
+              }));
+              $("#plot_yieldwish_kg option[value='prompt']").prop('selected', true);
               
               ideal = 0;
               
