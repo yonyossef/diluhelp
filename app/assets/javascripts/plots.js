@@ -144,7 +144,7 @@ jQuery(function() {
                   console.log("IDEAL="+ideal);
                   if (i === 8) {
                     $(this).addClass('ideal0')
-                    return String((ideal,10) + (i++)*250-2000) + " מומלץ"
+                    return String(parseInt(ideal,10) + (i++)*250-2000) + " מומלץ"
                   } else if ((i > 8 && i <= 10) || (i < 8 && i >= 6)) {
                     $(this).addClass('ideal1')
                   } else if ((i > 10 && i <= 12) || (i < 6 && i >= 4)) {
@@ -154,7 +154,8 @@ jQuery(function() {
                   } else if (i > 14 || i < 2) {
                     $(this).addClass('ideal4')
                   }
-                  return String((ideal,10) + (i++)*250-2000)
+                  console.log("RETURNING= "+ ideal + (i++)*250-2000);
+                  return String(parseInt(ideal,10) + (i++)*250-2000)
                 });
               });
               
