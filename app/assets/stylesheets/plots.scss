@@ -29,9 +29,19 @@
   //padding: 56px 56px;
 }
 
+.container .start_btn {
+  height: 300px;
+  width: 300px;
+}
+
 @media (max-width: 768px) {
   .container .btn {
     font-size: 18px;
+    height: 150px;
+    width: 150px;
+  }
+  
+  .container .start_btn {
     height: 150px;
     width: 150px;
   }

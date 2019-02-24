@@ -9,7 +9,7 @@ class PlotsController < ApplicationController
   end
   
   def new
-      @plot = Plot.new
+    @plot = Plot.new
   end
   
   def show

@@ -8,6 +8,7 @@
     <br>
 </div>
 <br>
-<div class="container">
-  <%= button_to "לחץ כאן להתחלה", { :action => "new" }, :method => :get, class: 'btn' %>
+<div class="container start_btn">
+  <%= link_to image_tag("diluhelp.png"), {:controller => 'plots', :action => "new" } %>
+  <%#= button_to "לחץ כאן להתחלה", { :action => "new" }, :method => :get, class: 'btn' %>
 </div>
